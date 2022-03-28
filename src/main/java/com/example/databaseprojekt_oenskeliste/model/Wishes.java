@@ -11,4 +11,8 @@ public class Wishes {
         this.wishId = wishId;
         this.price = price;
     }
+
+
+
+
 }

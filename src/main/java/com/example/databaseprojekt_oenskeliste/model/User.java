@@ -16,5 +16,7 @@ public class User {
         this.wishlist = wishlist;
     }
 
-
+    public String getUsername() {
+        return username;
+    }
 }
