@@ -1,16 +1,15 @@
 package com.example.databaseprojekt_oenskeliste.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class User {
 
     private String username;
     private String password;
-    private String userId;
+    private int userId;
     private ArrayList<Wishes> wishlist;
 
-    public User(String username, String password, String userId, ArrayList<Wishes> wishlist) {
+    public User(String username, String password, int userId, ArrayList<Wishes> wishlist) {
         this.username = username;
         this.password = password;
         this.userId = userId;
@@ -21,13 +20,8 @@ public class User {
         return username;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", userId='" + userId + '\'' +
-                ", wishlist=" + wishlist +
-                '}';
+    public Wishlist createWishlist(){
+        Wishlist userwishlist = new Wishlist(this.userId);
+        return userwishlist;
     }
 }
