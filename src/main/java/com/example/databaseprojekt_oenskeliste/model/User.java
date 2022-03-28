@@ -22,6 +22,13 @@ public class User {
 
     public Wishlist createWishlist(){
         Wishlist userwishlist = new Wishlist(this.userId);
+
         return userwishlist;
+    }
+
+    public String addWishToWishlist(String wish){
+        String addedWish = wish;
+
+        return addedWish;
     }
 }
