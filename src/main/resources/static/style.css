@@ -1,0 +1,8 @@
+ul{
+    list-stye-type:none ;
+    margin: 0;
+    padding: 0;
+}
+li{
+    float: right;
+}

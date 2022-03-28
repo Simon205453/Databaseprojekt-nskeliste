@@ -1,6 +1,7 @@
 package com.example.databaseprojekt_oenskeliste.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class User {
 
@@ -18,5 +19,15 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userId='" + userId + '\'' +
+                ", wishlist=" + wishlist +
+                '}';
     }
 }
