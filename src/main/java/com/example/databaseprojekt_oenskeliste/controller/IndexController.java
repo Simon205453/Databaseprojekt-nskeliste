@@ -13,6 +13,16 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/opretnybruger")
+    public String createNewUser(){
+        return "createNewUser";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
 
 
 
