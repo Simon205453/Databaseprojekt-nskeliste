@@ -6,10 +6,10 @@ public class User {
 
     private String username;
     private String password;
-    private String userId;
+    private int userId;
     private ArrayList<Wishes> wishlist;
 
-    public User(String username, String password, String userId, ArrayList<Wishes> wishlist) {
+    public User(String username, String password, int userId, ArrayList<Wishes> wishlist) {
         this.username = username;
         this.password = password;
         this.userId = userId;
@@ -18,5 +18,10 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public Wishlist createWishlist(){
+        Wishlist userwishlist = new Wishlist(this.userId);
+        return userwishlist;
     }
 }

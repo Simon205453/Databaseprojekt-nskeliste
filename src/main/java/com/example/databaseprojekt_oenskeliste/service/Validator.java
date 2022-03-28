@@ -12,4 +12,7 @@ public class Validator {
         }
         return false;
     }
+
+    //TODO make validator for - username duplicates - mail - password not empty
+
 }
