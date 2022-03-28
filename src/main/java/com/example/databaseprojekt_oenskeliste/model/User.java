@@ -26,9 +26,11 @@ public class User {
         return userwishlist;
     }
 
-    public String addWishToWishlist(String wish){
-        String addedWish = wish;
+    public static String addWishToWishlist(String wish, int userId){
+        //String addedWish = wish;
 
-        return addedWish;
+        // user_id, wish_id, wish_name (wish_id er AI)
+
+        return "INSERT INTO wishlist (`user_id`,`wish_name`) VALUES ('"+userId+"', '"+wish+"');";
     }
 }

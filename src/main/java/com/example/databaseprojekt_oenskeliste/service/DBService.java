@@ -33,6 +33,20 @@ public class DBService {
         return connection;
     }
 
+    public static void newWish(String wish, int user_ID){
+        // String sqlString = "INSERT INTO wishlist (`user_id`,`wish_name`) VALUES ('"+userId+"', '"+wish+"');";
+        String test = User.addWishToWishlist(wish,user_ID);
+        try {
+            statement = connection.createStatement();
+            statement.executeUpdate(test);
+            System.out.println(test);
+        }catch (Exception e){
+            System.out.println("e");
+            System.out.println("fejl ved oprettelse af nyt ønske");
+        }
+
+    }
+
 
 
 
