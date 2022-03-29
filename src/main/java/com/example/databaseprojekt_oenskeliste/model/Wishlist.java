@@ -18,4 +18,16 @@ public class Wishlist {
         this.assignedUserId = assignedUserId;
         
     }
+
+    public ArrayList<Wishes> getWishes() {
+        return wishes;
+    }
+
+    public int getAmountOfWishes() {
+        return amountOfWishes;
+    }
+
+    public int getAssignedUserId() {
+        return assignedUserId;
+    }
 }

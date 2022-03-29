@@ -2,7 +2,10 @@ package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class DBService {
 
@@ -12,10 +15,10 @@ public class DBService {
     public static ResultSet rs;
 
     public void addUserToDB(User user){
-        String selectedUser = user.getUsername();
+        String selectedUser = user.getEmail();
         try {
             statement = connection.createStatement();
-            sqlString = "INSERT INTO user (`username`)" + "VALUES('"+selectedUser+"')";
+            sqlString = "INSERT INTO user (`email`)" + "VALUES('"+selectedUser+"')";
             statement.executeUpdate(sqlString);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -24,8 +27,11 @@ public class DBService {
 
     public static Connection connectDB() {
         try {
-            String url = "jdbc:mysql://localhost:3306/wishlist_proj";
-            connection = DriverManager.getConnection(url, "root", "Need2breed#");
+            FileInputStream file = new FileInputStream("src/main/resources/database.properties");
+            Properties properties = new Properties();
+            properties.load(file);
+
+            connection = DriverManager.getConnection(properties.getProperty("connect-string"), properties.getProperty("username"), properties.getProperty("password"));
             System.out.println("Connection established");
         } catch (Exception e) {
             e.printStackTrace();
