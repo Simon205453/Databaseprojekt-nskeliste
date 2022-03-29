@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create new user</title>
 </head>
 <body>
-<h1>ny bruger skal laves</h1>
+
+<form method="post" action="/success">
+
+    <div class="container">
+        <label for="email"><b>Enter email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <br><br/>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <br><br/>
+        <button type="submit">Opret ny bruger</button>
+    </div>
+</form>
+
 </body>
 </html>

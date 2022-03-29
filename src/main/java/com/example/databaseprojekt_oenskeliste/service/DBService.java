@@ -2,7 +2,9 @@ package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 
+import java.io.FileInputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class DBService {
 
@@ -24,8 +26,10 @@ public class DBService {
 
     public static Connection connectDB() {
         try {
-            String url = "jdbc:mysql://localhost:3306/wishlist_proj";
-            connection = DriverManager.getConnection(url, "root", "Need2breed#");
+            FileInputStream file = new FileInputStream("src/main/resources/database.properties");
+            Properties properties = new Properties();
+            properties.load(file);
+            connection = DriverManager.getConnection(properties.getProperty("connect-string"), properties.getProperty("username"), properties.getProperty("password"));
             System.out.println("Connection established");
         } catch (Exception e) {
             e.printStackTrace();
