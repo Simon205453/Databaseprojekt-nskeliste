@@ -16,7 +16,6 @@ public class Wishlist {
 
     public Wishlist(int assignedUserId) {
         this.assignedUserId = assignedUserId;
-        
     }
 
     public ArrayList<Wishes> getWishes() {
