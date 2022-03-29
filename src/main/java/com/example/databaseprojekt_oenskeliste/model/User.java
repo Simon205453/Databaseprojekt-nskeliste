@@ -42,4 +42,14 @@ public class User {
 
         return "INSERT INTO wishlist (`user_id`,`wish_name`) VALUES ('"+userId+"', '"+wish+"');";
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userId=" + userId +
+                ", wishlist=" + wishlist +
+                '}';
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.databaseprojekt_oenskeliste.controller;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
+import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
 import com.example.databaseprojekt_oenskeliste.service.DBService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +36,13 @@ public class IndexController {
         User newUser = new User(email,password);
         service.addUserToDB(newUser);
         return "success";
+    }
+
+    @PostMapping("/loginSuccess")
+    public String loginSuccess(){
+        UserRepo allUsers = new UserRepo();
+        System.out.println(allUsers.getUsers());
+        return "loginSuccess";
     }
 
 

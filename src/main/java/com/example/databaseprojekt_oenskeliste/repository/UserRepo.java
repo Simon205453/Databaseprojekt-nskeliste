@@ -29,12 +29,13 @@ alle brugere har et login, som binder ønskerne til profil
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             //sqlString = "SELECT `user_emails`" + "FROM `user_emails`" + "WHERE user_emails.user_emails";
-            sqlString = "SELECT * FROM `user`";
+            sqlString = "SELECT * FROM user ORDER BY `userid` ";
             rs = statement.executeQuery(sqlString);
 
             while(rs.next()){
                  User tempUser = new User(rs.getString("email"), rs.getString("password")); // fix senere
                 allUsers.add(tempUser);
+
             }
 
         } catch (SQLException e) {
