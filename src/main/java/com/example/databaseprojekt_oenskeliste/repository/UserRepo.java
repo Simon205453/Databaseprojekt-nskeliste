@@ -42,8 +42,16 @@ alle brugere har et login, som binder ønskerne til profil
     }
 
     public boolean isLoginValid(){
-
+        boolean loginValid = false;
         try{
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = statement.executeQuery(sqlString);
+            sqlString = "SELECT * FROM `user` ";
+
+            if (rs.next()){
+
+            }
+
 
         }catch (Exception e){
             e.printStackTrace();
