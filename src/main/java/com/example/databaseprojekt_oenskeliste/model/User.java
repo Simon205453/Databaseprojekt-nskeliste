@@ -16,13 +16,17 @@ public class User {
         this.wishlist = wishlist;
     }
 
-    public User(String email, int userId) {
+    public User(String email, String password) {
         this.email = email;
-        this.userId = userId;
+        this.password = password;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword(){
+        return password;
     }
 
     public Wishlist createWishlist(){

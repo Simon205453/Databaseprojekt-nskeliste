@@ -1,5 +1,6 @@
 package com.example.databaseprojekt_oenskeliste.controller;
 
+import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.service.DBService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +28,12 @@ public class IndexController {
 
     @PostMapping("/success")
     public String sucess(WebRequest dataFromForm){
+        DBService service = new DBService();
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         System.out.println(email+" "+password);
+        User newUser = new User(email,password);
+        service.addUserToDB(newUser);
         return "success";
     }
 
