@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import static com.example.databaseprojekt_oenskeliste.service.DBService.*;
 
 public class UserRepo {
+
+    public static ArrayList<User> currentUser = new ArrayList<>();
     /*
     ønskeskyen replica
 
@@ -41,6 +43,7 @@ alle brugere har et login, som binder ønskerne til profil
         return allUsers;
     }
 
+    //is login present in database
     public boolean isLoginValid(){
 
         try{

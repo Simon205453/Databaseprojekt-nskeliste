@@ -6,8 +6,6 @@ public class WishesService {
 
     public Wishes createNewWish(String wishName, String price){
         Wishes newWish = new Wishes(wishName, price);
-
-
         return newWish;
     }
 
