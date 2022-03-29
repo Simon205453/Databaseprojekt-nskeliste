@@ -33,7 +33,7 @@ alle brugere har et login, som binder ønskerne til profil
             rs = statement.executeQuery(sqlString);
 
             while(rs.next()){
-                 User tempUser = new User(rs.getString("email"), rs.getInt("user_id"));
+                 User tempUser = new User(rs.getString("email"), rs.getString("password")); // fix senere
                 allUsers.add(tempUser);
             }
 

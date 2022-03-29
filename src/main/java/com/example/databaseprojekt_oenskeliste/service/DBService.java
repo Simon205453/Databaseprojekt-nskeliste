@@ -16,10 +16,11 @@ public class DBService {
     public static ResultSet rs;
 
     public void addUserToDB(User user){
-        String selectedUser = user.getEmail();
+        String userEmail = user.getEmail();
+        String userPassword = user.getPassword();
         try {
             statement = connection.createStatement();
-            sqlString = "INSERT INTO user (`email`)" + "VALUES('"+selectedUser+"')";
+            sqlString = "INSERT INTO user (`email`, `password`)" + "VALUES('"+userEmail+"','"+userPassword+"')";
             statement.executeUpdate(sqlString);
         } catch (SQLException e) {
             e.printStackTrace();
