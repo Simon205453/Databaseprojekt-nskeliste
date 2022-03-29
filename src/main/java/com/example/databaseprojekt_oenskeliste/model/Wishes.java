@@ -6,12 +6,18 @@ public class Wishes {
     private String wishId;
     private String price;
     private boolean isReserved;
+    private int belongingUserId;
 
-    public Wishes(String wishname, String wishId, String price, boolean isReserved) {
+    public Wishes(String wishname, String price, int belongingUserId) {
         this.wishname = wishname;
-        this.wishId = wishId;
         this.price = price;
-        this.isReserved = isReserved;
+        this.isReserved = false;
+        this.belongingUserId = belongingUserId;
+    }
+
+    public Wishes(String wishname, String price) {
+        this.wishname = wishname;
+        this.price = price;
     }
 
     public void setReserved(boolean reserved) {
@@ -34,4 +40,10 @@ public class Wishes {
     public boolean isReserved() {
         return isReserved;
     }
+
+    public int getBelongingUserId() {
+        return belongingUserId;
+    }
+
+
 }

@@ -21,6 +21,7 @@ public class User {
         this.password = password;
     }
 
+
     public String getEmail() {
         return email;
     }
@@ -37,6 +38,8 @@ public class User {
 
     public static String addWishToWishlist(String wish, int userId){
         //String addedWish = wish;
+
+        //user_id skal sammensættes fra user og wishlist tabel fra databasen
 
         // user_id, wish_id, wish_name (wish_id er AI)
 
