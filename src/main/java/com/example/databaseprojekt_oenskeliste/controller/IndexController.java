@@ -3,6 +3,8 @@ package com.example.databaseprojekt_oenskeliste.controller;
 import com.example.databaseprojekt_oenskeliste.service.DBService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class IndexController {
@@ -22,4 +24,19 @@ public class IndexController {
     public String login(){
         return "login";
     }
+
+    @PostMapping("/success")
+    public String sucess(WebRequest dataFromForm){
+        String email = dataFromForm.getParameter("email");
+        String password = dataFromForm.getParameter("password");
+        System.out.println(email+" "+password);
+        return "success";
+    }
+
+
+
+
+
+
+
 }
