@@ -50,21 +50,24 @@ public class IndexController {
     }
 
     @PostMapping("/success")
-    public String success(WebRequest dataFromForm){
+    public String success(WebRequest dataFromForm, HttpSession session, Model transport){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
-        hs.loginCheckerEmailPassword(email, password);
+        // kigger på det her senere
+       // hs.loginCheckerEmailPassword(email, password);
+        //transport.addAttribute("session",(String) session.getAttribute("email"));
+
         return "success";
     }
 
     @PostMapping("/loginSuccess")
-   @ResponseBody
     //Ved ikke om det overhovedet er nødvendigt med sessions.
-    public String loginSuccess(WebRequest dataFromForm, HttpServletRequest request){
-        HttpSession session = request.getSession();
+    public String loginSuccess(WebRequest dataFromForm, HttpServletRequest request,HttpSession session){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         User loggedInUser = new User(email, password);
+        session.setAttribute("logged", email);
+
 
         System.out.println(currentUser.toString());
         if (dbs.userExistsInDB(email)){
@@ -73,7 +76,7 @@ public class IndexController {
             //Kun email bliver tjekket i database so far.
             //TODO implement code to check password matches user email
             System.out.println("hej");
-            return "loginSuccess";
+            return "redirect:/wishgenerator";
         } else {
             System.out.println("Hvorfor ender vi her");
             //hvis login ikke er gyldigt bliver dette kørt
@@ -90,7 +93,7 @@ public class IndexController {
         return "wishlist";
     }
 
-    @PostMapping("/wishgenerator")
+    @GetMapping("/wishgenerator")
     public String addwish(WebRequest dataFromForm){
 
         String wishName = dataFromForm.getParameter("name");
