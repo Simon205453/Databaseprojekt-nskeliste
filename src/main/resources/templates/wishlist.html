@@ -6,7 +6,20 @@
 
 </head>
 <body>
-
+<div>
+    <a href="/wishgenerator">Add new wish</a>
+    <a href="/index">Home</a>
+</div>
+<div1>
+        <ul>
+            <a>
+                <ul class="wish" th:each="wish : ${allWishes}">
+                   <li th:text="${wish}"></li>
+                </ul>
+            </a>
+        </ul>
+</div1>
+<!--
 <h1> test</h1>
     <div class="wishes">
         <p class="wish" th:each="wish : ${allWishes}">

@@ -16,7 +16,7 @@ public class WishlistRepo {
         ArrayList<Wishes> allWishes = new ArrayList<>();
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sqlString = "SELECT * FROM wishlist ORDER BY `wish_name` ";
+            sqlString = "SELECT * FROM wishlist ORDER BY `wish_name`";
             rs = statement.executeQuery(sqlString);
 
             while (rs.next()){
