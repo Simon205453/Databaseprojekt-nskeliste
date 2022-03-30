@@ -20,7 +20,7 @@ public class WishlistRepo {
             rs = statement.executeQuery(sqlString);
 
             while (rs.next()){
-                Wishes wishes = new Wishes(rs.getString("wish_name"));
+                Wishes wishes = new Wishes(rs.getString("wish_name"),rs.getString("wish_price"));
                 allWishes.add(wishes);
             }
 

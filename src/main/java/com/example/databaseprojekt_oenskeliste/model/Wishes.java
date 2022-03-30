@@ -52,12 +52,6 @@ public class Wishes {
 
     @Override
     public String toString() {
-        return "Wishes{" +
-                "wishname='" + wishname + '\'' +
-                ", wishId='" + wishId + '\'' +
-                ", price='" + price + '\'' +
-                ", isReserved=" + isReserved +
-                ", belongingUserId=" + belongingUserId +
-                '}';
+        return "Ønske: "+wishname+", pris: "+price;
     }
 }
