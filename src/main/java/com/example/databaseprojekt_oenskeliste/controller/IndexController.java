@@ -27,7 +27,7 @@ import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.curren
 public class IndexController {
 
     @GetMapping("/index")
-    public String index(){
+    public String index(HttpSession session, Model transport){
         DBService.connectDB();
         currentUser.clear();
         return "index";
@@ -41,6 +41,7 @@ public class IndexController {
 
     @GetMapping("/login")
     public String login(){
+
         return "login";
     }
 
@@ -53,20 +54,20 @@ public class IndexController {
     public String success(WebRequest dataFromForm, HttpSession session, Model transport){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
-        // kigger på det her senere
-       // hs.loginCheckerEmailPassword(email, password);
-        //transport.addAttribute("session",(String) session.getAttribute("email"));
+        hs.loginCheckerEmailPassword(email, password);
+
 
         return "success";
     }
 
     @PostMapping("/loginSuccess")
     //Ved ikke om det overhovedet er nødvendigt med sessions.
-    public String loginSuccess(WebRequest dataFromForm, HttpServletRequest request,HttpSession session){
+    public String loginSuccess(WebRequest dataFromForm,HttpSession session, Model transport){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         User loggedInUser = new User(email, password);
         session.setAttribute("logged", email);
+        transport.addAttribute("session",(String) session.getAttribute("email"));
 
 
         System.out.println(currentUser.toString());
@@ -74,12 +75,10 @@ public class IndexController {
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
             //Kun email bliver tjekket i database so far.
-            //TODO implement code to check password matches user email
+            System.out.println(transport);
             System.out.println("hej");
             return "redirect:/wishgenerator";
         } else {
-            System.out.println("Hvorfor ender vi her");
-            //hvis login ikke er gyldigt bliver dette kørt
             return "redirect:/index";
         }
 
