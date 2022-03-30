@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <title>Wish list</title>
 
 </head>
 <body>
 
+<h1> test</h1>
+    <div class="wishes">
+        <p class="wish" th:each="wish : ${allWishes}">
+            <span th:text="${wish}"></span>
+        </p>
+    </div>
+</div>
 </body>
 </html>

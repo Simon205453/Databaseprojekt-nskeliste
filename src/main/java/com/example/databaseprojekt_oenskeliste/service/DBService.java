@@ -38,6 +38,7 @@ public class DBService {
             while (rs.next()){
                 User testUser = new User(rs.getString("email"),rs.getString("password"));
                 testListe.add(testUser);
+
             }
             for (User user : testListe) {
                 if (user.getEmail().equals(email)) {

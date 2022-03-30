@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
+    <link rel="stylesheet" th:href="@{styleFrontpage.css}" href="../static/styleFrontpage.css">
 </head>
+
+
+
 <body>
+
+
 
 <ul>
     <li><a href="/login"> Login</a></li>
     <li><a href="/opretnybruger">Opret bruger</a></li>
+    <li><a href="logout"> logout </a></li>
 </ul>
 
 <h1>

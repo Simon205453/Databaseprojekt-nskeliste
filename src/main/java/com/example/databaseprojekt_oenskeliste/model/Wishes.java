@@ -15,6 +15,10 @@ public class Wishes {
         this.belongingUserId = belongingUserId;
     }
 
+    public Wishes(String wishname){
+        this.wishname = wishname;
+    }
+
     public Wishes(String wishname, String price) {
         this.wishname = wishname;
         this.price = price;
@@ -44,6 +48,7 @@ public class Wishes {
     public int getBelongingUserId() {
         return belongingUserId;
     }
+
 
 
 }
