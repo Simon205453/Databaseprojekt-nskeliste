@@ -48,8 +48,10 @@ public class Wishes {
     public int getBelongingUserId() {
         return belongingUserId;
     }
-
-
+    @Override
+    public String toString() {
+        return "Wishes:  Name= " + wishname + ",  Price= " + price + ",  is reserved= " + isReserved;
+    }
     @Override
     public String toString() {
         return "Ønske: "+wishname+", pris: "+price;

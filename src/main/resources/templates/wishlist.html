@@ -4,15 +4,31 @@
     <meta charset="UTF-8">
     <title>Wish list</title>
 
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{wishliststyle.css}" href="../static/wishliststyle.css">
 </head>
 <body>
-
+<div>
+    <a href="/wishgenerator">Add new wish</a>
+    <a href="/index">Home</a>
+</div>
+<div1>
+        <ul>
+            <a>
+                <ul class="wish" th:each="wish : ${allWishes}">
+                   <li th:text="${wish}"></li>
+                </ul>
+            </a>
+        </ul>
+</div1>
+<!--
 <h1> test</h1>
-    <div class="wishes">
-        <p class="wish" th:each="wish : ${allWishes}">
-            <span th:text="${wish}"></span>
-        </p>
-    </div>
+<div class="wishes">
+    <p class="wish" th:each="wish : ${allWishes}">
+        <span th:text="${wish}"></span>
+    </p>
+</div>
+-->
 </div>
 </body>
 </html>
