@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .container{
+        padding: 16px;
+    }
+    form{
+        display: flex;
+        justify-content: center;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Wish generator</title>
 </head>
 <body>
+
+<form action="wishgenerator">
+    <div class="container">
+        <label for="name"><b>Dit ønske</b></label>
+        <input type="text" name="name">
+        <br><br/>
+        <label for="price"><b>Hva koster det</b></label>
+        <input type="text" name ="price">
+        <br><br/>
+        <button type="submit">Ønske ting</button>
+        <br><br/>
+        <a href="/index">Tilbage til startsiden</a>
+    </div>
+</form>
 
 </body>
 </html>

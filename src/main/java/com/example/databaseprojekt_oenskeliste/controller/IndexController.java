@@ -5,6 +5,7 @@ import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
 import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 import com.example.databaseprojekt_oenskeliste.service.DBService;
+import com.example.databaseprojekt_oenskeliste.service.UserService;
 import com.example.databaseprojekt_oenskeliste.service.Validator;
 import com.example.databaseprojekt_oenskeliste.service.WishesService;
 import org.springframework.stereotype.Controller;
@@ -71,7 +72,7 @@ public class IndexController {
 
 
         System.out.println(currentUser.toString());
-        if (dbs.userExistsInDB(email)){
+        if (dbs.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
             //Kun email bliver tjekket i database so far.
@@ -94,11 +95,11 @@ public class IndexController {
 
     @GetMapping("/wishgenerator")
     public String addwish(WebRequest dataFromForm){
-
+        WishlistController wlc = new WishlistController();
         String wishName = dataFromForm.getParameter("name");
         String wishPrice = dataFromForm.getParameter("price");
-
-
+        User loggedInUser = currentUser.get(0);
+        wlc.uploadWish(wishName,wishPrice,loggedInUser);
 
         // find logged user, to upload for the specific profile
         // return method to find user.
@@ -109,6 +110,8 @@ public class IndexController {
         System.out.println("wish generated");
         return "wishgenerator";
     }
+
+
     @GetMapping("/session")
     public String seeUsersSession(){
         return "session";

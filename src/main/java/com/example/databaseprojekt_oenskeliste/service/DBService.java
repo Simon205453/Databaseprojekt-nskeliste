@@ -29,7 +29,7 @@ public class DBService {
         }
     }
 
-    public boolean userExistsInDB(String email) {
+    public boolean userExistsInDB(String email, String password) {
         ArrayList<User> testListe = new ArrayList<>();
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -41,7 +41,7 @@ public class DBService {
 
             }
             for (User user : testListe) {
-                if (user.getEmail().equals(email)) {
+                if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                     return true;
                 }
             }
