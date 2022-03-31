@@ -48,6 +48,8 @@ public class IndexController {
 
     @GetMapping("/logout")
     public String logout(){
+        currentUser.clear();
+        System.out.println("current user is now cleared");
         return "redirect:/index";
     }
 
@@ -58,7 +60,13 @@ public class IndexController {
         hs.loginCheckerEmailPassword(email, password);
 
 
-        return "success";
+        return "redirect:/indexlogged";
+    }
+
+    @GetMapping("/indexlogged")
+    public String indexlogged(){
+
+        return "indexlogged";
     }
 
     @PostMapping("/loginSuccess")
@@ -78,8 +86,9 @@ public class IndexController {
             //Kun email bliver tjekket i database so far.
             System.out.println(transport);
             System.out.println("hej");
-            return "redirect:/wishgenerator";
+            return "redirect:/indexlogged";
         } else {
+            System.out.println("");
             return "redirect:/index";
         }
 
