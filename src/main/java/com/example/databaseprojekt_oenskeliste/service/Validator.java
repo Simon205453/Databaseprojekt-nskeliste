@@ -15,7 +15,6 @@ public class Validator {
             System.out.println("invalid email");
             return false;
         }
-        // if / else med forbindelse til DB for at tjekke om emailen allerede findes.
     }
 
     public boolean isUserLoggedIn(){
