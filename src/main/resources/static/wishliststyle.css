@@ -7,27 +7,37 @@ div a {
     display:inline-block;
 }
 div1{
+    position: relative;
+    left: 40%;
+    top: 30px;
     width: 300px;
     flex-direction: column;
-    display: block;
-    position: relative;
+    display: flex;
     justify-content: center;
     text-align: center;
     align-content: center;
+    align-items: center;
 
 }
 
 ul {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
     list-style-type: none;
-    margin: 0;
+    margin: 15px;
     padding: 0;
 
 }
 
 li {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
     font: 200 25px/1.5 Helvetica, Verdana, sans-serif;
     border-top: 1px #ccc;
-    margin: 10px;
 }
 
 li:last-child {

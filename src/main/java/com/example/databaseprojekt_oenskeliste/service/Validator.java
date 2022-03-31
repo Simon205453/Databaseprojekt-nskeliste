@@ -19,7 +19,10 @@ public class Validator {
     }
 
     public boolean isUserLoggedIn(){
-        String tempMail = currentUser.get(0).getEmail();
+        try {
+            String tempMail = currentUser.get(0).getEmail();
+
+
         if (tempMail.contains("@") && tempMail.contains(".")){
             System.out.println("user is logged in");
             return true;
@@ -27,8 +30,10 @@ public class Validator {
             System.out.println("user is NOT logged in");
             return false;
         }
-
-
+        } catch (Exception e){
+            System.out.println("no user is logged in");
+        }
+        return false;
     }
 
     public boolean isUserAlreadyAdded(User user){

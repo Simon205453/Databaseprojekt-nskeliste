@@ -62,15 +62,20 @@ userSession = new ArrayList<>();
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         hs.loginCheckerEmailPassword(email, password);
-
-
         return "redirect:/indexlogged";
     }
 
     @GetMapping("/indexlogged")
     public String indexlogged(){
+        Validator vali = new Validator();
+        if (vali.isUserLoggedIn()){
+            System.out.println("indexlogged: user is logged in");
+            return "indexlogged";
+        } else {
+            System.out.println("indexlogged: user is not logged in");
+            return "index";
+        }
 
-        return "indexlogged";
     }
 
     @PostMapping("/loginSuccess")
@@ -103,6 +108,7 @@ userSession = new ArrayList<>();
         WishlistRepo wishlistRepo = new WishlistRepo();
         ArrayList<Wishes> listOfAllWishes = wishlistRepo.getAllWishes();
         model.addAttribute("allWishes", listOfAllWishes);
+
         return "wishlist";
     }
 
