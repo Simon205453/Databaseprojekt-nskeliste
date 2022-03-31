@@ -12,7 +12,7 @@ public class HomeService {
         System.out.println("email= " + email + ", password= " + password);
         User newUser = new User(email,password);
         currentUser.add(newUser);
-        dbs.addUserToDB(newUser);
+        us.addUserToDB(newUser);
     }
 
 }

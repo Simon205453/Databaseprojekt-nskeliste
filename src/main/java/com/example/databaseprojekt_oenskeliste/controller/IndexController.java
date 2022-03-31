@@ -78,7 +78,7 @@ public class IndexController {
         transport.addAttribute("session",(String) session.getAttribute("email"));
 
         System.out.println(currentUser.toString());
-        if (dbs.userExistsInDB(email, password)){
+        if (us.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
             //Kun email bliver tjekket i database so far.
@@ -133,7 +133,7 @@ public class IndexController {
         return "choosewishlist";
     }
 
-    @PostMapping("/test")
+    @PostMapping("/findwishlist")
     public String testtest(Model model, WebRequest dataFromForm){
         WishlistRepo wishlistRepo = new WishlistRepo();
         String email = dataFromForm.getParameter("email");
