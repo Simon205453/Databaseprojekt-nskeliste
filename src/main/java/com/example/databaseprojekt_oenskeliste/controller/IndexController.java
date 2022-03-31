@@ -107,7 +107,11 @@ userSession = new ArrayList<>();
     public String getWishList(Model model){
         WishlistRepo wishlistRepo = new WishlistRepo();
         ArrayList<Wishes> listOfAllWishes = wishlistRepo.getAllWishes();
-        model.addAttribute("allWishes", listOfAllWishes);
+        User user = currentUser.get(0);
+        String email = user.getEmail();
+        ArrayList<Wishes> userWish = wishlistRepo.getSingleWishlist(email);
+        //model.addAttribute("allWishes", listOfAllWishes);
+        model.addAttribute("allWishes", userWish);
 
         return "wishlist";
     }
