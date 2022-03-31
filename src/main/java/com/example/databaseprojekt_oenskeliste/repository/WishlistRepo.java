@@ -21,7 +21,9 @@ public class WishlistRepo {
 
             while (rs.next()){
                 Wishes wishes = new Wishes(rs.getString("wish_name"),rs.getString("wish_price"));
-                allWishes.add(wishes);
+                if(!wishes.getWishname().equals("null")){
+                    allWishes.add(wishes);
+                }
             }
 
         }catch (Exception e){
