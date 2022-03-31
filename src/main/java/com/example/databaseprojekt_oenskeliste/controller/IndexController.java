@@ -47,7 +47,6 @@ userSession = new ArrayList<>();
 
     @GetMapping("/login")
     public String login(){
-
         return "login";
     }
 
