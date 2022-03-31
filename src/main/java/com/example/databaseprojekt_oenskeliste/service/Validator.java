@@ -34,32 +34,4 @@ public class Validator {
         }
         return false;
     }
-
-    public boolean isUserAlreadyAdded(User user){
-        UserRepo ur = new UserRepo();
-        if (ur.getUsers().contains(user.getEmail())){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean isWishReserved(Wishes wishes){
-        if (wishes.isReserved()){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean isWishAlreadyAdded(Wishes wishes, Wishlist wishlist){
-        if (wishlist.getWishes().contains(wishes.getWishname())){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    //TODO make validator for - username duplicates - mail - password not empty
-
 }
