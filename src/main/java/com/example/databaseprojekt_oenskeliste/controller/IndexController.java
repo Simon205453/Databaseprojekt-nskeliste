@@ -30,7 +30,12 @@ public class IndexController {
     @GetMapping("/index")
     public String index(HttpSession session, Model transport){
         DBService.connectDB();
-        currentUser.clear();
+
+        ArrayList<User> userSession = (ArrayList<User>) session.getAttribute(String.valueOf(currentUser));
+        if (currentUser == null){
+userSession = new ArrayList<>();
+        }
+        transport.addAttribute("session", userSession);
         return "index";
     }
 
@@ -42,7 +47,6 @@ public class IndexController {
 
     @GetMapping("/login")
     public String login(){
-
         return "login";
     }
 
