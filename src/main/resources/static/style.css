@@ -1,12 +1,22 @@
 
 .container{
+
+    background-color: ghostwhite;
     padding: 16px;
+    border-style:solid ;
 }
 form{
     display: flex;
     justify-content: center;
+    align-items: flex-end;
 }
 
+body{
+    background-image: url("https://www.gannett-cdn.com/-mm-/ebfb8ec629c77f27a99d004909c3b19d79fa4c5f/c=884-1000-5988-3884/local/-/media/2018/06/27/LAGroup/LafayetteLA/636657060215456892-santa-with-laptop.jpg?width=2560");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
 
 
 
