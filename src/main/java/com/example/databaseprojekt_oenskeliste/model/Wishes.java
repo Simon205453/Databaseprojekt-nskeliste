@@ -9,17 +9,6 @@ public class Wishes {
     private int belongingUserId;
 
 
-    /*
-    public Wishes(String wishname, String price, int belongingUserId) {
-        this.wishname = wishname;
-        this.price = price;
-        this.belongingUserId = belongingUserId;
-        //this.isReserved = false;
-
-    }
-
-     */
-
     public Wishes(String wishname){
         this.wishname = wishname;
     }

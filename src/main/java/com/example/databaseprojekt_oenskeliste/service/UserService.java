@@ -48,7 +48,6 @@ public class UserService {
         return false;
     }
 
-
     public int getUserIDFromMail(String mail){
         int userId = 0;
         try {
@@ -91,8 +90,6 @@ public class UserService {
         }
         return null;
     }
-
-
 
 
 }

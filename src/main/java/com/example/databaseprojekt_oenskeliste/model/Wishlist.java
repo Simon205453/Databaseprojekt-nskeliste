@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Wishlist {
 
+    /*
     private ArrayList<Wishes> wishes;
     private int amountOfWishes;
     private int assignedUserId;
@@ -18,6 +19,7 @@ public class Wishlist {
         this.assignedUserId = assignedUserId;
     }
 
+
     public ArrayList<Wishes> getWishes() {
         return wishes;
     }
@@ -29,4 +31,6 @@ public class Wishlist {
     public int getAssignedUserId() {
         return assignedUserId;
     }
+
+     */
 }
