@@ -15,15 +15,16 @@ public class WishlistController {
     WishesService ws = new WishesService();
     DBService dbs = new DBService();
     UserRepo userRepo = new UserRepo();
-    //ArrayList<User> userList = userRepo.getUsers();
     UserService us = new UserService();
+
+
 
     public void uploadWish(String name, String price, User user){
         Wishes newWish = ws.createNewWish(name, price);
         int userId = us.getUserIDFromMail(user.getEmail());
         System.out.println(userId);
         //us.getUserFromMail();
-        dbs.addWishToDB(newWish, userId);
+        ws.addWishToDB(newWish, userId);
         System.out.println("wish uploaded to database");
     }
 

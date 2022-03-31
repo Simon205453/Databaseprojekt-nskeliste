@@ -1,5 +1,4 @@
 package com.example.databaseprojekt_oenskeliste.controller;
-
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
@@ -10,11 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
-
 import javax.servlet.http.HttpSession;
-
 import java.util.ArrayList;
-
 import static com.example.databaseprojekt_oenskeliste.DatabaseprojektOenskelisteApplication.*;
 import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.currentUser;
 
@@ -27,7 +23,7 @@ public class IndexController {
 
         ArrayList<User> userSession = (ArrayList<User>) session.getAttribute(String.valueOf(currentUser));
         if (currentUser == null){
-userSession = new ArrayList<>();
+            userSession = new ArrayList<>();
         }
         transport.addAttribute("session", userSession);
         return "index";
@@ -35,7 +31,6 @@ userSession = new ArrayList<>();
 
     @GetMapping("/opretnybruger")
     public String createNewUser(){
-
         return "createNewUser";
     }
 
@@ -81,9 +76,8 @@ userSession = new ArrayList<>();
         session.setAttribute("logged", email);
         transport.addAttribute("session",(String) session.getAttribute("email"));
 
-
         System.out.println(currentUser.toString());
-        if (dbs.userExistsInDB(email, password)){
+        if (us.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
             //Kun email bliver tjekket i database so far.
@@ -146,14 +140,4 @@ userSession = new ArrayList<>();
         model.addAttribute("singleList", singleList);
         return "findwishlist";
     }
-
-    @GetMapping("/session")
-    public String seeUsersSession(){
-        return "session";
-    }
-
-
-
-
-
 }
