@@ -13,22 +13,11 @@
     <a href="/index">Home</a>
 </div>
 <div1>
-        <ul>
-            <a>
-                <ul class="wish" th:each="wish : ${allWishes}">
-                   <li th:text="${wish}"></li>
-                </ul>
-            </a>
-        </ul>
+    <ul class="wish" th:each="wish : ${allWishes}">
+        <li class="wishname" th:text="${wish.getWishname()}"><a>Wish</a></li>
+        <li class="wishprice" th:text="${wish.getPrice()}"><a>Price</a></li>
+    </ul>
 </div1>
-<!--
-<h1> test</h1>
-<div class="wishes">
-    <p class="wish" th:each="wish : ${allWishes}">
-        <span th:text="${wish}"></span>
-    </p>
-</div>
--->
 </div>
 </body>
 </html>

@@ -6,81 +6,80 @@ div a {
     padding: 15px;
     display:inline-block;
 }
-div1 {
-    align-items: center;
-    justify-content: space-around;
-    justify-items: center;
+div1{
+    width: 300px;
     flex-direction: column;
-    font-size: x-large;
-}
-/* div1 ul a ul li
+    display: block;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
 
- */
+}
+
 ul {
-    display: inline;
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    flex-direction: column;
+
 }
-li {display: inline-block;
-flex-direction: column}
-li:hover {
-    background: #555;
-    border-radius: 50%;
-    font-size: xxx-large;
-    display: flex;
-    position: relative;
-    transform: translateY(80px);
+
+li {
+    font: 200 25px/1.5 Helvetica, Verdana, sans-serif;
+    border-top: 1px #ccc;
+    margin: 10px;
+}
+
+li:last-child {
+    border: none;
+
 }
 /*
-a ul li:hover ul {display: block;}
-a ul li ul {
-    position: absolute;
-    width: 200px;
-    display: none;
+ul:hover{
+    border-radius: 50%;
+    background-color: green;
+    font-size-adjust: inherit;
 }
-ul li ul li {
-    background: #555;
+*/
+li a {
+    text-decoration: none;
+    color: #000;
     display: block;
-}
-ul li ul li a {display:block !important;}
-ul li ul li:hover {background: #666;}
+    width: 200px;
 
-
-
-
-.circle-to-square__container {
-    width: 450px;
-    height: 300px;
-    display: flex;
+    align-items: center;
     justify-content: center;
-&:hover {
-.circle-to-square {
-    width: 300px;
+
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+.wish{
+    background-position: bottom 50%;
+    transition: background-position 5s ease-out;
     border-radius: 50%;
 }
-.circle {
-    display: none;
-}
-.square {
-    display: initial;
-}
-}
-}
-.circle-to-square {
-    font-family: sans-serif;
-    width: 100%;
-    height: 100%;
-    background-color: yellow;
-    border: 8px solid red;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s ease all;
-.square {
-    display: none;
-}
+.wishprice{
+    font-size: small;
 }
 
- */
+.wish:hover{
+    background-color: lightgreen;
+    font-size: x-large;
+    transform: scaleY(1.5);
+    transition: 0.5s;
+    background-position: top 100%;
+}
+
+.wishname:hover{
+    font-size: xx-large;
+    transform: scaleX(2);
+    transition: 2s;
+}
+.wishprice:hover{
+    font-size: medium;
+    transform: rotate(1080deg);
+    transition: 0.5s;
+}
