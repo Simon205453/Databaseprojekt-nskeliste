@@ -31,7 +31,6 @@ public class IndexController {
 
     @GetMapping("/opretnybruger")
     public String createNewUser(){
-
         return "createNewUser";
     }
 
