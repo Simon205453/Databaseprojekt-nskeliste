@@ -5,6 +5,8 @@ import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.model.Wishlist;
 import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
 
+import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.currentUser;
+
 public class Validator {
     public boolean isEmailValid(String email) {
         if (email.contains("@") && email.contains(".")) {
@@ -14,6 +16,19 @@ public class Validator {
             return false;
         }
         // if / else med forbindelse til DB for at tjekke om emailen allerede findes.
+    }
+
+    public boolean isUserLoggedIn(){
+        String tempMail = currentUser.get(0).getEmail();
+        if (tempMail.contains("@") && tempMail.contains(".")){
+            System.out.println("user is logged in");
+            return true;
+        } else {
+            System.out.println("user is NOT logged in");
+            return false;
+        }
+
+
     }
 
     public boolean isUserAlreadyAdded(User user){

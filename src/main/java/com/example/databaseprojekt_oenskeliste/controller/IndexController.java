@@ -30,7 +30,12 @@ public class IndexController {
     @GetMapping("/index")
     public String index(HttpSession session, Model transport){
         DBService.connectDB();
-        currentUser.clear();
+
+        ArrayList<User> userSession = (ArrayList<User>) session.getAttribute(String.valueOf(currentUser));
+        if (currentUser == null){
+userSession = new ArrayList<>();
+        }
+        transport.addAttribute("session", userSession);
         return "index";
     }
 
@@ -42,12 +47,13 @@ public class IndexController {
 
     @GetMapping("/login")
     public String login(){
-
         return "login";
     }
 
     @GetMapping("/logout")
     public String logout(){
+        currentUser.clear();
+        System.out.println("current user is now cleared");
         return "redirect:/index";
     }
 
@@ -58,7 +64,13 @@ public class IndexController {
         hs.loginCheckerEmailPassword(email, password);
 
 
-        return "success";
+        return "redirect:/indexlogged";
+    }
+
+    @GetMapping("/indexlogged")
+    public String indexlogged(){
+
+        return "indexlogged";
     }
 
     @PostMapping("/loginSuccess")
@@ -78,8 +90,9 @@ public class IndexController {
             //Kun email bliver tjekket i database so far.
             System.out.println(transport);
             System.out.println("hej");
-            return "redirect:/wishgenerator";
+            return "redirect:/indexlogged";
         } else {
+            System.out.println("");
             return "redirect:/index";
         }
 
