@@ -1,6 +1,6 @@
 
 .container{
-
+position: relative;left: 0px; top: 250px;
     background-color: ghostwhite;
     padding: 16px;
     border-style:solid ;
@@ -8,7 +8,7 @@
 form{
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+
 }
 
 body{
