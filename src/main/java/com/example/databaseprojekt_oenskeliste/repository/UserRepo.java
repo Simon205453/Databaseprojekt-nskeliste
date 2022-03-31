@@ -22,7 +22,6 @@ brugere kan reservere ønsker på listen - boolean is reserved - set reserved
 
 alle brugere har et login, som binder ønskerne til profil
 
-
      */
 
     public ArrayList<User> getUsers(){
