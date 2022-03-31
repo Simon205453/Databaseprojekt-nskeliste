@@ -134,7 +134,7 @@ userSession = new ArrayList<>();
         return "choosewishlist";
     }
 
-    @PostMapping("/test")
+    @PostMapping("/findwishlist")
     public String testtest(Model model, WebRequest dataFromForm){
         WishlistRepo wishlistRepo = new WishlistRepo();
         String email = dataFromForm.getParameter("email");
