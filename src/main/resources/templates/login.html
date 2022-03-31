@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
-<h2> Log in</h2>
+
 <form method="post" action="/loginSuccess">
 
     <div class="container">
+        <h2> Log in</h2>
         <label for="email"><b>Enter email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required minlength="1" maxlength="30">
         <br><br/>

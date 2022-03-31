@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .container{
-        padding: 16px;
-    }
-    form{
-        display: flex;
-        justify-content: center;
-    }
-</style>
 <head>
     <meta charset="UTF-8">
     <title>Hvilken ønskeliste</title>
+    <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
 <form method="post" action="/findwishlist">
@@ -21,6 +13,7 @@
     <input type="text" placeholder="Enter Email" name="email" required>
     <br><br/>
     <button type="submit">Find ønskeliste</button>
+    <br><br/>
     <a href="indexlogged">Back home</a>
 </div>
 </form>
