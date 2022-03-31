@@ -83,7 +83,7 @@ userSession = new ArrayList<>();
 
 
         System.out.println(currentUser.toString());
-        if (dbs.userExistsInDB(email, password)){
+        if (us.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
             //Kun email bliver tjekket i database so far.
