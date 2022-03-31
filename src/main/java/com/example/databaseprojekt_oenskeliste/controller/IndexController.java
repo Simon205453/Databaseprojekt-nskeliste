@@ -129,9 +129,18 @@ userSession = new ArrayList<>();
     public String chooseList(Model model, WebRequest dataFromForm){
         WishlistRepo wishlistRepo = new WishlistRepo();
         String email = dataFromForm.getParameter("email");
+        //ArrayList<Wishes> singleList = wishlistRepo.getSingleWishlist(email);
+        //model.addAttribute("singleList", singleList);
+        return "choosewishlist";
+    }
+
+    @PostMapping("/test")
+    public String testtest(Model model, WebRequest dataFromForm){
+        WishlistRepo wishlistRepo = new WishlistRepo();
+        String email = dataFromForm.getParameter("email");
         ArrayList<Wishes> singleList = wishlistRepo.getSingleWishlist(email);
         model.addAttribute("singleList", singleList);
-        return "choosewishlist";
+        return "test";
     }
 
     @GetMapping("/session")
