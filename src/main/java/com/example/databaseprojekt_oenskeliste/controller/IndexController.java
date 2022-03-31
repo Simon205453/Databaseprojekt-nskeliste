@@ -2,23 +2,17 @@ package com.example.databaseprojekt_oenskeliste.controller;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
-import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
 import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 import com.example.databaseprojekt_oenskeliste.service.DBService;
-import com.example.databaseprojekt_oenskeliste.service.UserService;
 import com.example.databaseprojekt_oenskeliste.service.Validator;
-import com.example.databaseprojekt_oenskeliste.service.WishesService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import static com.example.databaseprojekt_oenskeliste.DatabaseprojektOenskelisteApplication.*;
@@ -146,7 +140,7 @@ userSession = new ArrayList<>();
         String email = dataFromForm.getParameter("email");
         ArrayList<Wishes> singleList = wishlistRepo.getSingleWishlist(email);
         model.addAttribute("singleList", singleList);
-        return "test";
+        return "findwishlist";
     }
 
     @GetMapping("/session")

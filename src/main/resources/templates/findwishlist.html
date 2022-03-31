@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Findwishlist</title>
+    <link rel="stylesheet" th:href="@{wishliststyle.css}" href="../static/wishliststyle.css">
 </head>
 <body>
-
+<div>
+    <a class="headlinetext" href="/index">Home</a>
+    <a class="headlinetext" href="logout">Log out</a>
+</div>
 <div1>
     <ul class="wish" th:each="wish : ${singleList}">
         <li class="wishname" th:text="${wish.getWishname()}"><a>Wish</a></li>
