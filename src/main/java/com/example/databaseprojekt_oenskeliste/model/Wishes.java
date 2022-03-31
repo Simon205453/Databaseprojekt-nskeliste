@@ -8,12 +8,17 @@ public class Wishes {
     private boolean isReserved;
     private int belongingUserId;
 
+
+    /*
     public Wishes(String wishname, String price, int belongingUserId) {
         this.wishname = wishname;
         this.price = price;
-        this.isReserved = false;
         this.belongingUserId = belongingUserId;
+        //this.isReserved = false;
+
     }
+
+     */
 
     public Wishes(String wishname){
         this.wishname = wishname;
@@ -23,6 +28,13 @@ public class Wishes {
         this.wishname = wishname;
         this.price = price;
     }
+
+    public Wishes(String wishname, String price, int belongingUserId){
+        this.wishname = wishname;
+        this.price = price;
+        this.belongingUserId = belongingUserId;
+    }
+
 
     public void setReserved(boolean reserved) {
         isReserved = reserved;

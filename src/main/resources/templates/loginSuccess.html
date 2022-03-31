@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Sker der G</title>
@@ -8,7 +8,12 @@
 <li><a href="logout"> logout </a></li>
 
 
-<h1> meerwaldten</h1>
+<div1>
+    <ul class="wish" th:each="wish : ${singleList}">
+        <li class="wishname" th:text="${wish.getWishname()}"><a>Wish</a></li>
+        <li class="wishprice" th:text="${wish.getPrice()}"><a>Price</a></li>
+    </ul>
+</div1>
 
 
 

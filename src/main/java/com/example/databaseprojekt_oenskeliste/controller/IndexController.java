@@ -112,6 +112,15 @@ public class IndexController {
     }
 
 
+    @GetMapping("/choosewishlist")
+    public String chooseList(Model model, WebRequest dataFromForm){
+        WishlistRepo wishlistRepo = new WishlistRepo();
+        String email = dataFromForm.getParameter("email");
+        ArrayList<Wishes> singleList = wishlistRepo.getSingleWishlist(email);
+        model.addAttribute("singleList", singleList);
+        return "choosewishlist";
+    }
+
     @GetMapping("/session")
     public String seeUsersSession(){
         return "session";

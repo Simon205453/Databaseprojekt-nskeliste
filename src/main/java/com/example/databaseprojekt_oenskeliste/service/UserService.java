@@ -2,6 +2,7 @@ package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static com.example.databaseprojekt_oenskeliste.service.DBService.*;
@@ -13,15 +14,17 @@ public class UserService {
     public int getUserIDFromMail(String mail){
         int userId = 0;
         try {
-            String sqlString = "SELECT `user_id` FROM `user` WHERE email='"+mail+"'";
-            statement = connection.createStatement();
+            String sqlString = "SELECT `user_id` FROM user WHERE email='"+mail+"';";
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = statement.executeQuery(sqlString);
             rs.next();
             userId = rs.getInt("user_id");
             System.out.println(userId);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return userId;
     }
 
