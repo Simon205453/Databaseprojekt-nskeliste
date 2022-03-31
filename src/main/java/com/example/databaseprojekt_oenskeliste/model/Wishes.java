@@ -49,7 +49,6 @@ public class Wishes {
         return belongingUserId;
     }
 
-
     @Override
     public String toString() {
         return "Ønske: "+wishname+", pris: "+price;

@@ -21,6 +21,7 @@ public class WishlistController {
     public void uploadWish(String name, String price, User user){
         Wishes newWish = ws.createNewWish(name, price);
         int userId = us.getUserIDFromMail(user.getEmail());
+        System.out.println(userId);
 
         //us.getUserFromMail();
         dbs.addWishToDB(newWish, userId);

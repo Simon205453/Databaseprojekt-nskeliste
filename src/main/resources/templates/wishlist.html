@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <title>Wish list</title>
 
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{wishliststyle.css}" href="../static/wishliststyle.css">
 </head>
 <body>
-
-<h1> test</h1>
-    <div class="wishes">
-        <p class="wish" th:each="wish : ${allWishes}">
-            <span th:text="${wish.getBelongingUserId()}"></span>
-        </p>
-    </div>
+<div>
+    <a href="/wishgenerator">Add new wish</a>
+    <a href="/index">Home</a>
+</div>
+<div1>
+    <ul class="wish" th:each="wish : ${allWishes}">
+        <li class="wishname" th:text="${wish.getWishname()}"><a>Wish</a></li>
+        <li class="wishprice" th:text="${wish.getPrice()}"><a>Price</a></li>
+    </ul>
+</div1>
 </div>
 </body>
 </html>

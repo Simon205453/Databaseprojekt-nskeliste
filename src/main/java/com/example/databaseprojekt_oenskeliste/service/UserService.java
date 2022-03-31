@@ -13,9 +13,10 @@ public class UserService {
     public int getUserIDFromMail(String mail){
         int userId = 0;
         try {
-            String sqlString = "SELECT `user_id` FROM `user` WHERE email="+mail+"";
+            String sqlString = "SELECT `user_id` FROM `user` WHERE email='"+mail+"'";
             statement = connection.createStatement();
             rs = statement.executeQuery(sqlString);
+            rs.next();
             userId = rs.getInt("user_id");
             System.out.println(userId);
         } catch (SQLException e) {
