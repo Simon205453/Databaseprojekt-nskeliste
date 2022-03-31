@@ -3,7 +3,6 @@ package com.example.databaseprojekt_oenskeliste.service;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class WishesService {

@@ -30,22 +30,6 @@ public class User {
         return password;
     }
 
-    public Wishlist createWishlist(){
-        Wishlist userwishlist = new Wishlist(this.userId);
-
-        return userwishlist;
-    }
-
-    public static String addWishToWishlist(String wish, int userId){
-        //String addedWish = wish;
-
-        //user_id skal sammensættes fra user og wishlist tabel fra databasen
-
-        // user_id, wish_id, wish_name (wish_id er AI)
-
-        return "INSERT INTO wishlist (`user_id`,`wish_name`) VALUES ('"+userId+"', '"+wish+"');";
-    }
-
     @Override
     public String toString() {
         return "User{" +
