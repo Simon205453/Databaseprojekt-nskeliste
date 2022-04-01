@@ -4,13 +4,7 @@ public class Wishes {
 
     private String wishname;
     private String price;
-    private boolean isReserved;
     private int belongingUserId;
-
-
-    public Wishes(String wishname){
-        this.wishname = wishname;
-    }
 
     public Wishes(String wishname, String price) {
         this.wishname = wishname;
@@ -21,12 +15,6 @@ public class Wishes {
         this.wishname = wishname;
         this.price = price;
         this.belongingUserId = belongingUserId;
-    }
-
-
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
-        System.out.println("Wish is now reserved");
     }
 
     public String getWishname() {
