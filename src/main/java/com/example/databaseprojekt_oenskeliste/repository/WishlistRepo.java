@@ -1,7 +1,9 @@
 package com.example.databaseprojekt_oenskeliste.repository;
 
+import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.service.UserService;
+import com.example.databaseprojekt_oenskeliste.service.WishesService;
 
 
 import java.sql.ResultSet;
@@ -13,7 +15,7 @@ import static com.example.databaseprojekt_oenskeliste.service.DBService.sqlStrin
 
 public class WishlistRepo {
 
-    UserService us = new UserService();
+     UserService us = new UserService();
 
     public ArrayList<Wishes> getAllWishes(){
         ArrayList<Wishes> allWishes = new ArrayList<>();
@@ -37,9 +39,9 @@ public class WishlistRepo {
         }catch (Exception e){
             e.printStackTrace();
         }
-
         return allWishes;
     }
+
 
     public ArrayList<Wishes> getSingleWishlist(String email){
         ArrayList<Wishes> allWishes = getAllWishes();
@@ -53,10 +55,18 @@ public class WishlistRepo {
         }
 
         return singleWish;
-
     }
 
-
+    public void uploadWish(String name, String price, User user){
+        WishesService ws = new WishesService();
+        UserService us = new UserService();
+        Wishes newWish = ws.createNewWish(name, price);
+        int userId = us.getUserIDFromMail(user.getEmail());
+        System.out.println(userId);
+        //us.getUserFromMail();
+        ws.addWishToDB(newWish, userId);
+        System.out.println("wish uploaded to database");
+    }
 }
 
 

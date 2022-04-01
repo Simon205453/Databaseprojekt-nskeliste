@@ -14,6 +14,7 @@ public class UserService {
     public void addUserToDB(User user) {
         String userEmail = user.getEmail();
         String userPassword = user.getPassword();
+        
         try {
             statement = connection.createStatement();
             sqlString = "INSERT INTO user (`email`, `password`)" + "VALUES('" + userEmail + "','" + userPassword + "')";
@@ -32,7 +33,6 @@ public class UserService {
             while (rs.next()){
                 User testUser = new User(rs.getString("email"),rs.getString("password"));
                 testListe.add(testUser);
-
             }
             for (User user : testListe) {
                 if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
@@ -42,8 +42,6 @@ public class UserService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         System.out.println("something is wrong in userexistsindb method");
         return false;
     }
@@ -61,35 +59,6 @@ public class UserService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return userId;
     }
-
-    public User getUserFromMail(String mail){
-        String sqlString = "SELECT `user_id` FROM `user` WHERE email="+mail+"";
-        try {
-            statement = connection.createStatement();
-            rs = statement.executeQuery(sqlString);
-            User returnUser = new User(rs.getString("email"), rs.getString("password"));
-            return returnUser;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public User getUserFromID(int user_id){
-        String sqlString = "SELECT `email` FROM `user` WHERE user_id="+user_id+"";
-        try {
-            statement = connection.createStatement();
-            rs = statement.executeQuery(sqlString);
-            User returnUser = new User(rs.getString("email"), rs.getString("password"));
-            return returnUser;
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
 }

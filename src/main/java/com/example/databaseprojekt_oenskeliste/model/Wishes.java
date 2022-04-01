@@ -3,7 +3,6 @@ package com.example.databaseprojekt_oenskeliste.model;
 public class Wishes {
 
     private String wishname;
-    private String wishId;
     private String price;
     private boolean isReserved;
     private int belongingUserId;
@@ -34,16 +33,8 @@ public class Wishes {
         return wishname;
     }
 
-    public String getWishId() {
-        return wishId;
-    }
-
     public String getPrice() {
         return price;
-    }
-
-    public boolean isReserved() {
-        return isReserved;
     }
 
     public int getBelongingUserId() {

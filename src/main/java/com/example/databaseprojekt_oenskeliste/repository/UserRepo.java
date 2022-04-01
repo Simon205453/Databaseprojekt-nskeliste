@@ -11,18 +11,7 @@ import static com.example.databaseprojekt_oenskeliste.service.DBService.*;
 public class UserRepo {
 
     public static ArrayList<User> currentUser = new ArrayList<>();
-    /*
-    ønskeskyen replica
 
-lave en ønskeseddel objekt med ønsker objekter
-
-man skal kunne dele sin liste med andre, bare via et link?
-
-brugere kan reservere ønsker på listen - boolean is reserved - set reserved
-
-alle brugere har et login, som binder ønskerne til profil
-
-     */
 
     public ArrayList<User> getUsers(){
         ArrayList<User> allUsers = new ArrayList<>();

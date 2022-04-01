@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class DBService {
 
-    public static Statement statement;
+    public  static Statement statement;
     public static Connection connection = DBService.connectDB();
     public static String sqlString;
     public static ResultSet rs;
@@ -24,8 +24,4 @@ public class DBService {
         }
         return connection;
     }
-
-
-
-
 }

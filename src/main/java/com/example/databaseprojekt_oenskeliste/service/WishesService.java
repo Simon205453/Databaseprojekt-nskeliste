@@ -6,8 +6,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 public class WishesService {
-    public static Statement statement;
-    public static Connection connection = DBService.connectDB();
+    private Statement statement;
+    private Connection connection = DBService.connectDB();
 
     public Wishes createNewWish(String wishName, String price){
         Wishes newWish = new Wishes(wishName, price);

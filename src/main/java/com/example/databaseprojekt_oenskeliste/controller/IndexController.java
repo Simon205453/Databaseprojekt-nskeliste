@@ -20,7 +20,6 @@ public class IndexController {
     @GetMapping("/index")
     public String index(HttpSession session, Model transport){
         DBService.connectDB();
-
         ArrayList<User> userSession = (ArrayList<User>) session.getAttribute(String.valueOf(currentUser));
         if (currentUser == null){
             userSession = new ArrayList<>();
@@ -80,7 +79,6 @@ public class IndexController {
         if (us.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
-            //Kun email bliver tjekket i database so far.
             System.out.println(transport);
             System.out.println("hej");
             return "redirect:/indexlogged";
@@ -94,11 +92,9 @@ public class IndexController {
     @GetMapping("/wishlist")
     public String getWishList(Model model){
         WishlistRepo wishlistRepo = new WishlistRepo();
-        ArrayList<Wishes> listOfAllWishes = wishlistRepo.getAllWishes();
         User user = currentUser.get(0);
         String email = user.getEmail();
         ArrayList<Wishes> userWish = wishlistRepo.getSingleWishlist(email);
-        //model.addAttribute("allWishes", listOfAllWishes);
         model.addAttribute("allWishes", userWish);
 
         return "wishlist";
@@ -106,30 +102,13 @@ public class IndexController {
 
     @GetMapping("/wishgenerator")
     public String addwish(WebRequest dataFromForm){
-        WishlistController wlc = new WishlistController();
+        WishlistRepo wishRepo = new WishlistRepo();
         String wishName = dataFromForm.getParameter("name");
         String wishPrice = dataFromForm.getParameter("price");
         User loggedInUser = currentUser.get(0);
-        wlc.uploadWish(wishName,wishPrice,loggedInUser);
-
-        // find logged user, to upload for the specific profile
-        // return method to find user.
-        //User tempuser =
-        //wc.uploadWish(name, price, tempuser);
-        //User loggeduser =
-        //wc.uploadWish(name, price, loggeduser);
+        wishRepo.uploadWish(wishName,wishPrice,loggedInUser);
         System.out.println("wish generated");
         return "wishgenerator";
-    }
-
-
-    @GetMapping("/choosewishlist")
-    public String chooseList(Model model, WebRequest dataFromForm){
-        WishlistRepo wishlistRepo = new WishlistRepo();
-        String email = dataFromForm.getParameter("email");
-        //ArrayList<Wishes> singleList = wishlistRepo.getSingleWishlist(email);
-        //model.addAttribute("singleList", singleList);
-        return "choosewishlist";
     }
 
     @PostMapping("/findwishlist")
