@@ -23,7 +23,7 @@ public class UserService {
             e.printStackTrace();
         }
     }
-
+//TODO al sql input skal arbejdes fra repo, i dette tilfælde skal rs returnes til metoden her.
     public boolean userExistsInDB(String email, String password) {
         ArrayList<User> testListe = new ArrayList<>();
         try {
@@ -45,7 +45,7 @@ public class UserService {
         System.out.println("something is wrong in userexistsindb method");
         return false;
     }
-
+//TODO sql skal i repo, rs skal returnes med metode fra repo, så vi kan service metode en int fra nedenstånde metode.
     public int getUserIDFromMail(String mail){
         int userId = 0;
         try {

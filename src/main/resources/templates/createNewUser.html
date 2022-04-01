@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create new user</title>
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
+<ul>
+    <li><a class="headlinetext" href="/index"> Home</a></li>
+    <li><a class="headlinetext" href="/choosewishlist">Find ønskeliste</a></li>
 
+</ul>
 <form method="post" action="/success">
 
     <div class="container">

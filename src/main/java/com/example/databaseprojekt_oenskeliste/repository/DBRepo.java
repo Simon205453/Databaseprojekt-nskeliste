@@ -1,10 +1,15 @@
-package com.example.databaseprojekt_oenskeliste.service;
+package com.example.databaseprojekt_oenskeliste.repository;
+
+import com.example.databaseprojekt_oenskeliste.service.DBService;
 
 import java.io.FileInputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Properties;
 
-public class DBService {
+public class DBRepo {
 
     public  static Statement statement;
     public static Connection connection = DBService.connectDB();
