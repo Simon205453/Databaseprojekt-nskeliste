@@ -86,7 +86,6 @@ public class IndexController {
             System.out.println("");
             return "redirect:/index";
         }
-
     }
 
     @GetMapping("/wishlist")

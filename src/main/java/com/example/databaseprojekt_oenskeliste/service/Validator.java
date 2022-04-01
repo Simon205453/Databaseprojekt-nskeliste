@@ -1,10 +1,5 @@
 package com.example.databaseprojekt_oenskeliste.service;
 
-import com.example.databaseprojekt_oenskeliste.model.User;
-import com.example.databaseprojekt_oenskeliste.model.Wishes;
-import com.example.databaseprojekt_oenskeliste.model.Wishlist;
-import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
-
 import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.currentUser;
 
 public class Validator {
