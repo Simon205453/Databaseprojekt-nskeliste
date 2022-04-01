@@ -111,6 +111,11 @@ public class IndexController {
         return "wishgenerator";
     }
 
+    @GetMapping("/choosewishlist")
+    public String chooseWishList(){
+        return "choosewishlist";
+    }
+
     @PostMapping("/findwishlist")
     public String testtest(Model model, WebRequest dataFromForm){
         WishlistRepo wishlistRepo = new WishlistRepo();
