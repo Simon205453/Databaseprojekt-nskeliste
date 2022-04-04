@@ -3,8 +3,8 @@ package com.example.databaseprojekt_oenskeliste.service;
 import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.currentUser;
 
 public class Validator {
-    public boolean isEmailValid(String email) {
-        if (email.contains("@") && email.contains(".")) {
+    public boolean isLoginValid(String email,String password) {
+        if (email.contains("@") && email.contains(".") && password.contains(" ")) {
             return true;
         }else{
             System.out.println("invalid email");
@@ -12,10 +12,11 @@ public class Validator {
         }
     }
 
+
+
     public boolean isUserLoggedIn(){
         try {
             String tempMail = currentUser.get(0).getEmail();
-
 
         if (tempMail.contains("@") && tempMail.contains(".")){
             System.out.println("user is logged in");
