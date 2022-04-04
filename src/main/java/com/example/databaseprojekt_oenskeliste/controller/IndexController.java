@@ -68,18 +68,15 @@ public class IndexController {
 
     @PostMapping("/loginSuccess")
     //Ved ikke om det overhovedet er nødvendigt med sessions.
-    public String loginSuccess(WebRequest dataFromForm,HttpSession session, Model transport){
+    public String loginSuccess(WebRequest dataFromForm){
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         User loggedInUser = new User(email, password);
-        session.setAttribute("logged", email);
-        transport.addAttribute("session",(String) session.getAttribute("email"));
+
 
         System.out.println(currentUser.toString());
         if (us.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
-            session.setAttribute("users",loggedInUser);
-            System.out.println(transport);
             System.out.println("hej");
             return "redirect:/indexlogged";
         } else {
