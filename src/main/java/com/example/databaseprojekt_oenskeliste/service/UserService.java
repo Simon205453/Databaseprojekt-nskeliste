@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import static com.example.databaseprojekt_oenskeliste.service.DBService.*;
+import static com.example.databaseprojekt_oenskeliste.repository.DBRepo.*;
 
 public class UserService {
 

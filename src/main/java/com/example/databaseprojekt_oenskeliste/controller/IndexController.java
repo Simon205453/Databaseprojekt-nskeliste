@@ -1,9 +1,8 @@
 package com.example.databaseprojekt_oenskeliste.controller;
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
+import com.example.databaseprojekt_oenskeliste.repository.DBRepo;
 import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
-import com.example.databaseprojekt_oenskeliste.service.DBService;
-
 import com.example.databaseprojekt_oenskeliste.service.Validator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +19,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public String index(HttpSession session, Model transport){
-        DBService.connectDB();
+        DBRepo.connectDB();
         ArrayList<User> userSession = (ArrayList<User>) session.getAttribute(String.valueOf(currentUser));
         if (currentUser == null){
             userSession = new ArrayList<>();
