@@ -3,6 +3,7 @@ import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 import com.example.databaseprojekt_oenskeliste.service.DBService;
+
 import com.example.databaseprojekt_oenskeliste.service.Validator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
