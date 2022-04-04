@@ -8,10 +8,7 @@ import com.example.databaseprojekt_oenskeliste.service.WishesService;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
-
-import static com.example.databaseprojekt_oenskeliste.service.DBService.*;
-import static com.example.databaseprojekt_oenskeliste.service.DBService.sqlString;
+import static com.example.databaseprojekt_oenskeliste.repository.DBRepo.*;
 
 public class WishlistRepo {
 

@@ -1,13 +1,14 @@
 package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
+import com.example.databaseprojekt_oenskeliste.repository.DBRepo;
 
 import java.sql.Connection;
 import java.sql.Statement;
 
 public class WishesService {
     private Statement statement;
-    private Connection connection = DBService.connectDB();
+    private Connection connection = DBRepo.connectDB();
 
     public Wishes createNewWish(String wishName, String price){
         Wishes newWish = new Wishes(wishName, price);

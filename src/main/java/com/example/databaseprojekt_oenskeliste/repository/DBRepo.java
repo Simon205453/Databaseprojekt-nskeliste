@@ -1,7 +1,5 @@
 package com.example.databaseprojekt_oenskeliste.repository;
 
-import com.example.databaseprojekt_oenskeliste.service.DBService;
-
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +10,7 @@ import java.util.Properties;
 public class DBRepo {
 
     public  static Statement statement;
-    public static Connection connection = DBService.connectDB();
+    public static Connection connection = DBRepo.connectDB();
     public static String sqlString;
     public static ResultSet rs;
 
