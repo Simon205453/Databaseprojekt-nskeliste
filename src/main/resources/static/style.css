@@ -1,8 +1,48 @@
 
+
+ul {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 15px;
+    padding: 0;
+
+}
+
 .container{
     background-color: ghostwhite;
     padding: 16px;
     border-style:solid ;
+}
+
+.headlinetext{
+    text-decoration: none;
+    opacity: 100%;
+    color: black;
+    font-size: 20px;
+    padding: 15px;
+    display:inline-block;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    padding: 50px;
+
 }
 form{
     height: 500px;

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hvilken ønskeliste</title>
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
+<ul>
+    <li><a class="headlinetext" href="/indexlogged"> Home</a></li>
+
+</ul>
 <form method="post" action="/findwishlist">
 <div class="container">
     <label for="email"><b>Indtast email for den ønskeliste du vil finde!</b></label>
