@@ -9,9 +9,9 @@ import static com.example.databaseprojekt_oenskeliste.repository.DBRepo.*;;
 
 public class UserRepo {
 
-    public static ArrayList<User> currentUser = new ArrayList<>();
 
 
+/*
     public ArrayList<User> getUsers(){
         ArrayList<User> allUsers = new ArrayList<>();
         try {
@@ -41,8 +41,6 @@ public class UserRepo {
             if (rs.next()){
 
             }
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -50,7 +48,9 @@ public class UserRepo {
         return true;
     }
 
+/*
 
+ */
 
 
 }

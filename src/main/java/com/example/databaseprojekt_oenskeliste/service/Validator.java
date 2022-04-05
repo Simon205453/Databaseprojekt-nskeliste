@@ -1,23 +1,12 @@
 package com.example.databaseprojekt_oenskeliste.service;
 
-import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.currentUser;
+import static com.example.databaseprojekt_oenskeliste.model.User.currentUser;
+
 
 public class Validator {
-    public boolean isLoginValid(String email,String password) {
-        if (email.contains("@") && email.contains(".") && password.contains(" ")) {
-            return true;
-        }else{
-            System.out.println("invalid email");
-            return false;
-        }
-    }
-
-
-
     public boolean isUserLoggedIn(){
         try {
             String tempMail = currentUser.get(0).getEmail();
-
         if (tempMail.contains("@") && tempMail.contains(".")){
             System.out.println("user is logged in");
             return true;

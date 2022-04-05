@@ -12,7 +12,7 @@ import static com.example.databaseprojekt_oenskeliste.repository.DBRepo.*;
 
 public class WishlistRepo {
 
-     UserService us = new UserService();
+/*
 
     public ArrayList<Wishes> getAllWishes(){
         ArrayList<Wishes> allWishes = new ArrayList<>();
@@ -28,7 +28,7 @@ public class WishlistRepo {
 
                 Wishes wishes = new Wishes(wishName,wishPrice,user_id);
 
-                if(!wishes.getWishname().equals("null")){
+                if(!wishes.getWishName().equals("null")){
                     allWishes.add(wishes);
                 }
             }
@@ -40,19 +40,6 @@ public class WishlistRepo {
     }
 
 
-    public ArrayList<Wishes> getSingleWishlist(String email){
-        ArrayList<Wishes> allWishes = getAllWishes();
-        ArrayList<Wishes> singleWish = new ArrayList<>();
-        int userID = us.getUserIDFromMail(email);
-
-        for (Wishes allWish : allWishes) {
-            if (allWish.getBelongingUserId() == userID) {
-                singleWish.add(allWish);
-            }
-        }
-
-        return singleWish;
-    }
 
     public void uploadWish(String name, String price, User user){
         WishesService ws = new WishesService();
@@ -64,6 +51,8 @@ public class WishlistRepo {
         ws.addWishToDB(newWish, userId);
         System.out.println("wish uploaded to database");
     }
+    /*
+ */
 }
 
 

@@ -2,23 +2,23 @@ package com.example.databaseprojekt_oenskeliste.model;
 
 public class Wishes {
 
-    private String wishname;
+    private String wishName;
     private String price;
     private int belongingUserId;
 
-    public Wishes(String wishname, String price) {
-        this.wishname = wishname;
+    public Wishes(String wishName, String price) {
+        this.wishName = wishName;
         this.price = price;
     }
 
-    public Wishes(String wishname, String price, int belongingUserId){
-        this.wishname = wishname;
+    public Wishes(String wishName, String price, int belongingUserId){
+        this.wishName = wishName;
         this.price = price;
         this.belongingUserId = belongingUserId;
     }
 
-    public String getWishname() {
-        return wishname;
+    public String getWishName() {
+        return wishName;
     }
 
     public String getPrice() {
@@ -31,6 +31,6 @@ public class Wishes {
 
     @Override
     public String toString() {
-        return "Ønske: "+wishname+", pris: "+price;
+        return "Ønske: "+wishName+", pris: "+price;
     }
 }

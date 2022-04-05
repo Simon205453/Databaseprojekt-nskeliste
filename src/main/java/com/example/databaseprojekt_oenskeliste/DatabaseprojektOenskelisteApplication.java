@@ -10,14 +10,9 @@ import static com.example.databaseprojekt_oenskeliste.repository.DBRepo.connectD
 @SpringBootApplication
 public class DatabaseprojektOenskelisteApplication {
 
-    public static WishesService ws = new WishesService();
-    public static UserService us = new UserService();
-    public static Validator vali = new Validator();
-    public static HomeService hs = new HomeService();
-
     public static void main(String[] args) {
         SpringApplication.run(DatabaseprojektOenskelisteApplication.class, args);
-        connectDB();
+        DBRepo.connectDB();
     }
 
 }

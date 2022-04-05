@@ -8,11 +8,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class DBRepo {
-
-    public  static Statement statement;
-    public static Connection connection = DBRepo.connectDB();
-    public static String sqlString;
-    public static ResultSet rs;
+    private static Connection connection = DBRepo.connectDB();
 
     public static Connection connectDB() {
         try {

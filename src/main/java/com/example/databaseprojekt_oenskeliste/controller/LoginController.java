@@ -1,6 +1,8 @@
 package com.example.databaseprojekt_oenskeliste.controller;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
+import com.example.databaseprojekt_oenskeliste.service.HomeService;
+import com.example.databaseprojekt_oenskeliste.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +11,9 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 
-import static com.example.databaseprojekt_oenskeliste.DatabaseprojektOenskelisteApplication.hs;
-import static com.example.databaseprojekt_oenskeliste.DatabaseprojektOenskelisteApplication.us;
-import static com.example.databaseprojekt_oenskeliste.repository.UserRepo.currentUser;
+
+import static com.example.databaseprojekt_oenskeliste.model.User.currentUser;
+
 
 
 @Controller
@@ -35,16 +37,17 @@ public class LoginController {
     }
 
     @PostMapping("/success")
-    public String success(WebRequest dataFromForm, HttpSession session, Model transport){
+    public String success(WebRequest dataFromForm){
+        HomeService homeService = new HomeService();
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
-        hs.loginCheckerEmailPassword(email, password);
+        homeService.loginCheckerEmailPassword(email, password);
         return "redirect:/indexlogged";
     }
 
     @PostMapping("/loginSuccess")
-    //Ved ikke om det overhovedet er nødvendigt med sessions.
     public String loginSuccess(WebRequest dataFromForm,HttpSession session, Model transport){
+        UserService userService = new UserService();
         String email = dataFromForm.getParameter("email");
         String password = dataFromForm.getParameter("password");
         User loggedInUser = new User(email, password);
@@ -52,11 +55,10 @@ public class LoginController {
         transport.addAttribute("session",(String) session.getAttribute("email"));
 
         System.out.println(currentUser.toString());
-        if (us.userExistsInDB(email, password)){
+        if (userService.userExistsInDB(email, password)){
             currentUser.add(loggedInUser);
             session.setAttribute("users",loggedInUser);
             System.out.println(transport);
-            System.out.println("hej");
             return "redirect:/indexlogged";
         } else {
             System.out.println("");
