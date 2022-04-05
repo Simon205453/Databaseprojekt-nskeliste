@@ -2,91 +2,73 @@ package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
-import com.example.databaseprojekt_oenskeliste.repository.DBRepo;
-
-import java.sql.Connection;
+import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
+import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class WishesService {
-    private Statement statement;
-    private Connection connection = DBRepo.connectDB();
-    private  String sqlString;
-    private  ResultSet rs;
 
-
-    public Wishes createNewWish(String wishName, String price){
+    public Wishes createNewWish(String wishName, String price) {
         Wishes newWish = new Wishes(wishName, price);
         return newWish;
     }
 
-    public void addWishToDB(Wishes wish, int user_ID) {
-        String wishName = wish.getWishName();
-        String wishPrice = wish.getPrice();
-        try {
-            String sqlString = "INSERT INTO wishlist (`user_id`,`wish_name`,`wish_price`) VALUES ('" + user_ID + "', '" + wishName + "', '" + wishPrice + "')";
-            statement = connection.createStatement();
-            statement.executeUpdate(sqlString);
-            System.out.println(sqlString);
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("Error, wish not added");
-        }
-    }
-
-    public int getUserIDFromMail(String mail){
+    public int getUserIDFromMail(String mail) {
         int userId = 0;
+        UserRepo ur = new UserRepo();
+        ResultSet tempResultSet = ur.selectUserFromMail(mail);
         try {
-            String sqlString = "SELECT `user_id` FROM user WHERE email='"+mail+"';";
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            rs = statement.executeQuery(sqlString);
-            rs.next();
-            userId = rs.getInt("user_id");
+            tempResultSet.next();
+            userId = tempResultSet.getInt("user_id");
             System.out.println(userId);
-
+            return userId;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("couldnt get userid from getuserid method");
         }
         return userId;
     }
 
-    public ArrayList<Wishes> getAllWishes(){
+    public ArrayList<Wishes> getAllWishes() {
         ArrayList<Wishes> allWishes = new ArrayList<>();
+        WishlistRepo wlRepo = new WishlistRepo();
+        ResultSet thisrs = wlRepo.getWishesFromWishlist();
         try {
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sqlString = "SELECT * FROM wishlist ORDER BY `wish_name`";
-            rs = statement.executeQuery(sqlString);
+            while (thisrs.next()) {
+                String wishName = thisrs.getString("wish_name");
+                String wishPrice = thisrs.getString("wish_price");
+                int user_id = thisrs.getInt("user_id");
 
-            while (rs.next()){
-                String wishName = rs.getString("wish_name");
-                String wishPrice = rs.getString("wish_price");
-                int user_id = rs.getInt("user_id");
+                Wishes wishes = new Wishes(wishName, wishPrice, user_id);
 
-                Wishes wishes = new Wishes(wishName,wishPrice,user_id);
-
-                if(!wishes.getWishName().equals("null")){
+                if (!wishes.getWishName().equals("null")) {
                     allWishes.add(wishes);
                 }
             }
-        }catch (Exception e){
+            return allWishes;
+        } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Fejl i wishesservice getallwishes");
         }
+        System.out.println("couldnt get wishes from wishes service getallwishes");
         return allWishes;
     }
 
-    public void uploadWish(String name, String price, User user){
+    public void uploadWish(String name, String price, User user) {
         WishesService ws = new WishesService();
+        WishlistRepo wlRepo = new WishlistRepo();
         UserService us = new UserService();
         Wishes newWish = ws.createNewWish(name, price);
+        System.out.println(newWish.toString());
         int userId = us.getUserIDFromMail(user.getEmail());
         System.out.println(userId);
-        ws.addWishToDB(newWish, userId);
+        wlRepo.addWishToDB(newWish, userId);
         System.out.println("wish uploaded to database");
     }
 
-    public ArrayList<Wishes> getSingleWishlist(String email){
+    public ArrayList<Wishes> getSingleWishlist(String email) {
         ArrayList<Wishes> allWishes = getAllWishes();
         ArrayList<Wishes> singleWish = new ArrayList<>();
         int userID = getUserIDFromMail(email);

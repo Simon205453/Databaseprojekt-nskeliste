@@ -2,19 +2,14 @@ package com.example.databaseprojekt_oenskeliste.controller;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
-import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 import com.example.databaseprojekt_oenskeliste.service.WishesService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
-
 import java.util.ArrayList;
-
 import static com.example.databaseprojekt_oenskeliste.model.User.currentUser;
-
-
 
 @Controller
 public class WishController {

@@ -1,56 +1,56 @@
 package com.example.databaseprojekt_oenskeliste.repository;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
-
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import static com.example.databaseprojekt_oenskeliste.repository.DBRepo.*;;
+import java.sql.Statement;
 
 public class UserRepo {
+    private Statement statement;
+    private Connection connection = DBRepo.connectDB();
+    private  String sqlString;
+    private  ResultSet rs;
 
+    public void addUserToDB(User user) {
+        String userEmail = user.getEmail();
+        String userPassword = user.getPassword();
 
-
-/*
-    public ArrayList<User> getUsers(){
-        ArrayList<User> allUsers = new ArrayList<>();
         try {
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            //sqlString = "SELECT `user_emails`" + "FROM `user_emails`" + "WHERE user_emails.user_emails";
-            sqlString = "SELECT * FROM user ORDER BY `userid` ";
-            rs = statement.executeQuery(sqlString);
-
-            while(rs.next()){
-                 User tempUser = new User(rs.getString("email"), rs.getString("password")); // fix senere
-                allUsers.add(tempUser);
-            }
+            statement = connection.createStatement();
+            sqlString = "INSERT INTO user (`email`, `password`)" + "VALUES('" + userEmail + "','" + userPassword + "')";
+            statement.executeUpdate(sqlString);
+            System.out.println("User added to DB");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return allUsers;
     }
 
-    //is login present in database
-    public boolean isLoginValid(){
-        boolean loginValid = false;
-        try{
+    public ResultSet getUsers() {
+        try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            sqlString = "SELECT * FROM user";
             rs = statement.executeQuery(sqlString);
-            sqlString = "SELECT * FROM `user` ";
 
-            if (rs.next()){
-
-            }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return true;
+        System.out.println("something is wrong in userrepo method");
+        return rs;
     }
 
-/*
+    public ResultSet selectUserFromMail(String mail){
+        try {
+            String sqlString = "SELECT `user_id` FROM user WHERE email='" + mail + "';";
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet userFromMail = statement.executeQuery(sqlString);
 
- */
+            return userFromMail;
+        } catch (Exception e){
+            System.out.println("Fejl i select user from mail");
+            e.printStackTrace();
+        }
+        return null;
 
-
+    }
 }

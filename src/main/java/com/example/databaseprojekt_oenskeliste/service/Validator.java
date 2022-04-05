@@ -2,7 +2,6 @@ package com.example.databaseprojekt_oenskeliste.service;
 
 import static com.example.databaseprojekt_oenskeliste.model.User.currentUser;
 
-
 public class Validator {
     public boolean isUserLoggedIn(){
         try {

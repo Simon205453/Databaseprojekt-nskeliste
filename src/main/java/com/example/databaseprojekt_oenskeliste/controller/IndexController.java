@@ -1,4 +1,5 @@
 package com.example.databaseprojekt_oenskeliste.controller;
+
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.repository.DBRepo;
 import com.example.databaseprojekt_oenskeliste.service.Validator;
@@ -7,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-
 import static com.example.databaseprojekt_oenskeliste.model.User.currentUser;
-
 
 @Controller
 public class IndexController {
