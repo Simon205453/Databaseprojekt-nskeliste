@@ -1,7 +1,10 @@
 package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
+import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
+import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,15 +32,19 @@ public class UserService {
     }
 
     public int getUserIDFromMail(String mail) {
-        UserRepo ur = new UserRepo();
-        int userId;
+        //UserRepo ur = new UserRepo();
+        WishesService ws = new WishesService();
+        int userId = ws.getUserIDFromMail(mail);
+        /*
         try {
+            //userId = ws.getUserIDFromMail(mail);
             userId = ur.selectUserFromMail(mail).getInt("user_id");
             return userId;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("fejl i getUserIDFromMail userservice");
-        return 0;
+         */
+        //System.out.println("fejl i getUserIDFromMail userservice");
+        return userId;
     }
 }
