@@ -29,13 +29,13 @@ public class UserRepo {
     public ResultSet getUsers() {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            sqlString = "SELECT * FROM user";
+            sqlString = "SELECT * FROM user;";
             rs = statement.executeQuery(sqlString);
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("something is wrong in userrepo method");
         }
-        System.out.println("something is wrong in userrepo method");
         return rs;
     }
 

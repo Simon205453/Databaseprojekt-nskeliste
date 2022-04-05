@@ -16,6 +16,7 @@ public class IndexController {
     @GetMapping("/index")
     public String index(HttpSession session, Model transport) {
         DBRepo.connectDB();
+        currentUser.clear();
         ArrayList<User> userSession = (ArrayList<User>) session.getAttribute(String.valueOf(currentUser));
         if (currentUser == null) {
             userSession = new ArrayList<>();

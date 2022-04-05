@@ -6,6 +6,7 @@ public class User {
 
     private String email;
     private String password;
+    private int userID;
     public static ArrayList<User> currentUser = new ArrayList<>();
 
     public User(String email, String password) {
@@ -21,11 +22,16 @@ public class User {
         return password;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "email = " + email + ", password: " + password + ", user ID: "+userID;
     }
 }

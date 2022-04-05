@@ -15,21 +15,6 @@ public class WishesService {
         return newWish;
     }
 
-    public int getUserIDFromMail(String mail) {
-        int userId = 0;
-        UserRepo ur = new UserRepo();
-        ResultSet tempResultSet = ur.selectUserFromMail(mail);
-        try {
-            tempResultSet.next();
-            userId = tempResultSet.getInt("user_id");
-            System.out.println(userId);
-            return userId;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("couldnt get userid from getuserid method");
-        }
-        return userId;
-    }
 
     public ArrayList<Wishes> getAllWishes() {
         ArrayList<Wishes> allWishes = new ArrayList<>();
@@ -62,16 +47,18 @@ public class WishesService {
         UserService us = new UserService();
         Wishes newWish = ws.createNewWish(name, price);
         System.out.println(newWish.toString());
-        int userId = us.getUserIDFromMail(user.getEmail());
-        System.out.println(userId);
+        //int userId = us.getUserIDFromMail(user.getEmail());
+        int userId = user.getUserID();
+        //System.out.println(userId);
         wlRepo.addWishToDB(newWish, userId);
         System.out.println("wish uploaded to database");
     }
 
     public ArrayList<Wishes> getSingleWishlist(String email) {
+        UserService us = new UserService();
         ArrayList<Wishes> allWishes = getAllWishes();
         ArrayList<Wishes> singleWish = new ArrayList<>();
-        int userID = getUserIDFromMail(email);
+        int userID = us.getUserIDFromMail(email);
 
         for (Wishes allWish : allWishes) {
             if (allWish.getBelongingUserId() == userID) {

@@ -32,19 +32,25 @@ public class UserService {
     }
 
     public int getUserIDFromMail(String mail) {
-        //UserRepo ur = new UserRepo();
-        WishesService ws = new WishesService();
-        int userId = ws.getUserIDFromMail(mail);
-        /*
+        int userId = 0;
+        UserRepo ur = new UserRepo();
+        ResultSet tempResultSet = ur.selectUserFromMail(mail);
         try {
-            //userId = ws.getUserIDFromMail(mail);
-            userId = ur.selectUserFromMail(mail).getInt("user_id");
+            tempResultSet.next();
+            userId = tempResultSet.getInt("user_id");
+            System.out.println(userId);
             return userId;
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("couldnt get userid from getuserid method");
         }
-         */
-        //System.out.println("fejl i getUserIDFromMail userservice");
         return userId;
     }
+
+    public void addUserToDB(String email, String password){
+        UserRepo ur = new UserRepo();
+        User newUser = new User(email,password);
+        ur.addUserToDB(newUser);
+    }
+
 }
