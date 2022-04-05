@@ -14,7 +14,7 @@
     <name>Databaseprojekt_oenskeliste</name>
     <description>Databaseprojekt_oenskeliste</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <dependency>

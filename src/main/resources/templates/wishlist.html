@@ -15,6 +15,7 @@
 <div1>
     <ul class="wish" th:each="wish : ${allWishes}">
         <li class="wishname" th:text="${wish.getWishname()}"><a>Wish</a></li>
+        <br>
         <li class="wishprice" th:text="${wish.getPrice()}"><a>Price</a></li>
     </ul>
 </div1>
