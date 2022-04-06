@@ -8,15 +8,15 @@ import java.util.ArrayList;
 
 public class WishesService {
 
+    private WishlistRepo wlRepo = new WishlistRepo();
+
     public Wishes createNewWish(String wishName, String price) {
-        Wishes newWish = new Wishes(wishName, price);
-        return newWish;
+        return new Wishes(wishName, price);
     }
 
 
     public ArrayList<Wishes> getAllWishes() {
         ArrayList<Wishes> allWishes = new ArrayList<>();
-        WishlistRepo wlRepo = new WishlistRepo();
         ResultSet thisrs = wlRepo.getWishesFromWishlist();
         try {
             while (thisrs.next()) {
@@ -40,12 +40,9 @@ public class WishesService {
     }
 
     public void uploadWish(String name, String price, User user) {
-        WishesService ws = new WishesService();
-        WishlistRepo wlRepo = new WishlistRepo();
-        Wishes newWish = ws.createNewWish(name, price);
-        System.out.println(newWish.toString());
+        Wishes newWish = createNewWish(name, price);
         int userId = user.getUserID();
-        if(!(name ==null)) {
+        if(!(name==null && price==null)){
             wlRepo.addWishToDB(newWish, userId);
             System.out.println("wish uploaded to database");
         }else{
@@ -61,7 +58,7 @@ public class WishesService {
         int userID = us.getUserIDFromMail(email);
 
         for (Wishes allWish : allWishes) {
-            if (allWish.getBelongingUserId() == userID) {
+            if (allWish.getUserID() == userID) {
                 singleWish.add(allWish);
             }
         }

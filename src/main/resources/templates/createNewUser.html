@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create new user</title>
+    <title>Opret ny bruger</title>
     <link rel="stylesheet" th:href="@{style.css}" href="../static/style.css">
 </head>
 <body>
 <ul>
-    <li><a class="headlinetext" href="/index"> Home</a></li>
+    <li><a class="headlinetext" href="/index"> Hjem</a></li>
     <li><a class="headlinetext" href="/choosewishlist">Find ønskeliste</a></li>
-
 </ul>
 <form method="post" action="/success">
-
     <div class="container">
-        <label for="email"><b>Enter email</b></label>
+        <label for="email"><b>Indtast email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
         <br><br/>
-        <label for="password"><b>Password</b></label>
+        <label for="password"><b>Indtast password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
         <br><br/>
         <button type="submit">Opret ny bruger</button>
     </div>
 </form>
-
 </body>
 </html>

@@ -4,17 +4,17 @@ public class Wishes {
 
     private String wishName;
     private String price;
-    private int belongingUserId;
+    private int userID;
 
     public Wishes(String wishName, String price) {
         this.wishName = wishName;
         this.price = price;
     }
 
-    public Wishes(String wishName, String price, int belongingUserId){
+    public Wishes(String wishName, String price, int userID){
         this.wishName = wishName;
         this.price = price;
-        this.belongingUserId = belongingUserId;
+        this.userID = userID;
     }
 
     public String getWishName() {
@@ -25,8 +25,8 @@ public class Wishes {
         return price;
     }
 
-    public int getBelongingUserId() {
-        return belongingUserId;
+    public int getUserID() {
+        return userID;
     }
 
     @Override

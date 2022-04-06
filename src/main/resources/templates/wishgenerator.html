@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Wish generator</title>
@@ -7,26 +7,25 @@
 </head>
 <body>
 <ul>
-    <li><a class="headlinetext" href="/indexlogged">Home</a></li>
+    <li><a class="headlinetext" href="/indexlogged">Hjem</a></li>
     <li><a class="headlinetext" href="/choosewishlist">Find ønskeliste</a></li>
     <li><a class="headlinetext" href="/wishlist">Din ønskeliste</a></li>
-    <li><a class="headlinetext" href="logout"> logout </a></li>
+    <li><a class="headlinetext" href="logout">Log ud </a></li>
 </ul>
 <form action="wishgenerator">
     <div class="container">
         <label for="name"><b>Dit ønske</b></label>
         <input type="text" name="name">
         <br><br/>
-        <label for="price"><b>Hva koster det</b></label>
+        <label for="price"><b>Hvad koster det</b></label>
         <input type="text" name="price">
         <br><br/>
-        <button type="submit">Ønske ting</button>
+        <button type="submit">Opret ønske</button>
         <br><br/>
         <a href="/indexlogged">Tilbage til startsiden</a>
         <br><br/>
         <a href="/wishlist">Tilbage til din ønskeliste</a>
     </div>
 </form>
-
 </body>
 </html>

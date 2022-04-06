@@ -29,12 +29,12 @@ public class IndexController {
     @GetMapping("/indexlogged")
     public String indexlogged() {
         Validator vali = new Validator();
-        if (vali.isUserLoggedIn()) {
+        if (vali.isEmailValid()) {
             System.out.println("indexlogged: user is logged in");
             return "indexlogged";
         } else {
             System.out.println("indexlogged: user is not logged in");
-            return "index";
+            return "redirect:/index";
         }
 
     }

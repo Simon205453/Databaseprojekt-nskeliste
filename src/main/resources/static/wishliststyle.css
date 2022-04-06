@@ -13,6 +13,7 @@ body{
     padding: 15px;
     display: inline-block;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -47,7 +48,6 @@ div1{
     text-align: center;
     align-content: center;
     align-items: center;
-
 }
 
 ul {
@@ -58,7 +58,6 @@ ul {
     list-style-type: none;
     margin: 15px;
     padding: 0;
-
 }
 
 li {
@@ -75,13 +74,7 @@ li:last-child {
     align-content: center;
     text-align: center;
 }
-/*
-ul:hover{
-    border-radius: 50%;
-    background-color: green;
-    font-size-adjust: inherit;
-}
-*/
+
 li a {
     text-decoration: none;
     color: #000;

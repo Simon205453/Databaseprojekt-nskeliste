@@ -1,9 +1,7 @@
 package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
-import com.example.databaseprojekt_oenskeliste.model.Wishes;
 import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
-import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,9 +9,10 @@ import java.util.ArrayList;
 
 public class UserService {
 
+    private UserRepo ur = new UserRepo();
+
     public boolean userExistsInDB(String email, String password) {
         ArrayList<User> userExist = new ArrayList<>();
-        UserRepo ur = new UserRepo();
         ResultSet rs = ur.getUsers();
         try {
             while (rs.next()) {
@@ -33,12 +32,10 @@ public class UserService {
 
     public int getUserIDFromMail(String mail) {
         int userId = 0;
-        UserRepo ur = new UserRepo();
         ResultSet tempResultSet = ur.selectUserFromMail(mail);
         try {
             tempResultSet.next();
             userId = tempResultSet.getInt("user_id");
-            System.out.println(userId);
             return userId;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,7 +45,6 @@ public class UserService {
     }
 
     public void addUserToDB(String email, String password){
-        UserRepo ur = new UserRepo();
         User newUser = new User(email,password);
         ur.addUserToDB(newUser);
     }

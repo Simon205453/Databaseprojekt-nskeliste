@@ -13,24 +13,24 @@ import static com.example.databaseprojekt_oenskeliste.model.User.currentUser;
 
 @Controller
 public class WishController {
+
+    private WishesService ws = new WishesService();
+
     @GetMapping("/wishlist")
     public String getWishList(Model model){
-        WishesService wishesService = new WishesService();
         User user = currentUser.get(0);
         String email = user.getEmail();
-        ArrayList<Wishes> userWish = wishesService.getSingleWishlist(email);
+        ArrayList<Wishes> userWish = ws.getSingleWishlist(email);
         model.addAttribute("allWishes", userWish);
-
         return "wishlist";
     }
 
     @GetMapping("/wishgenerator")
     public String addwish(WebRequest dataFromForm){
-        WishesService wishesService = new WishesService();
         String wishName = dataFromForm.getParameter("name");
         String wishPrice = dataFromForm.getParameter("price");
         User loggedInUser = currentUser.get(0);
-        wishesService.uploadWish(wishName,wishPrice,loggedInUser);
+        ws.uploadWish(wishName,wishPrice,loggedInUser);
         return "wishgenerator";
     }
 
@@ -41,9 +41,8 @@ public class WishController {
 
     @PostMapping("/findwishlist")
     public String findWishList(Model model, WebRequest dataFromForm){
-        WishesService wishesService = new WishesService();
         String email = dataFromForm.getParameter("email");
-        ArrayList<Wishes> singleList = wishesService.getSingleWishlist(email);
+        ArrayList<Wishes> singleList = ws.getSingleWishlist(email);
         model.addAttribute("singleList", singleList);
         return "findwishlist";
     }

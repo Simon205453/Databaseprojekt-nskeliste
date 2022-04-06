@@ -1,5 +1,5 @@
 <!DOCTYPE html >
-<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:display="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
@@ -8,17 +8,15 @@
 <body>
 
 <div>
-    <a class="headlinetext" href="/wishgenerator">Add new wish</a>
-    <a class="headlinetext" href="/indexlogged">Home</a>
-    <a class="headlinetext" href="logout">Log out</a>
+    <a class="headlinetext" href="/wishgenerator">Opret nyt ønske</a>
+    <a class="headlinetext" href="/indexlogged">Hjem</a>
+    <a class="headlinetext" href="logout">Log ud</a>
 </div>
 <div1>
     <ul class="wish" th:each="wish : ${allWishes}">
         <li class="wishname" th:text="${wish.getWishName()}"><a>Wish</a></li>
-        <br>
-        <li class="wishprice" th:text="${wish.getPrice()}"><a>Price</a></li>
+        <li class="wishprice" th:text="${wish.getPrice()}">Pris:<a>Price</a></li>
     </ul>
 </div1>
-</div>
 </body>
 </html>

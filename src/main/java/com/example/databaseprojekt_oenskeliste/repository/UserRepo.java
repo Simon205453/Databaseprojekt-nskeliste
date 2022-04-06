@@ -43,9 +43,8 @@ public class UserRepo {
         try {
             String sqlString = "SELECT `user_id` FROM user WHERE email='" + mail + "';";
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ResultSet userFromMail = statement.executeQuery(sqlString);
 
-            return userFromMail;
+            return statement.executeQuery(sqlString);
         } catch (Exception e){
             System.out.println("Fejl i select user from mail");
             e.printStackTrace();
