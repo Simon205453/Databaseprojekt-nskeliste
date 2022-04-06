@@ -13,7 +13,6 @@ public class DBRepo {
             FileInputStream file = new FileInputStream("src/main/resources/database.properties");
             Properties properties = new Properties();
             properties.load(file);
-
             connection = DriverManager.getConnection(properties.getProperty("connect-string"), properties.getProperty("username"), properties.getProperty("password"));
             System.out.println("Connection established");
         } catch (Exception e) {
