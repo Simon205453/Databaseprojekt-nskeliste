@@ -31,7 +31,6 @@ public class WishController {
         String wishPrice = dataFromForm.getParameter("price");
         User loggedInUser = currentUser.get(0);
         wishesService.uploadWish(wishName,wishPrice,loggedInUser);
-        System.out.println("wish generated");
         return "wishgenerator";
     }
 

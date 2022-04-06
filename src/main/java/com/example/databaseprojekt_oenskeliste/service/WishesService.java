@@ -2,10 +2,8 @@ package com.example.databaseprojekt_oenskeliste.service;
 
 import com.example.databaseprojekt_oenskeliste.model.User;
 import com.example.databaseprojekt_oenskeliste.model.Wishes;
-import com.example.databaseprojekt_oenskeliste.repository.UserRepo;
 import com.example.databaseprojekt_oenskeliste.repository.WishlistRepo;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class WishesService {
@@ -44,14 +42,16 @@ public class WishesService {
     public void uploadWish(String name, String price, User user) {
         WishesService ws = new WishesService();
         WishlistRepo wlRepo = new WishlistRepo();
-        UserService us = new UserService();
         Wishes newWish = ws.createNewWish(name, price);
         System.out.println(newWish.toString());
-        //int userId = us.getUserIDFromMail(user.getEmail());
         int userId = user.getUserID();
-        //System.out.println(userId);
-        wlRepo.addWishToDB(newWish, userId);
-        System.out.println("wish uploaded to database");
+        if(!(name ==null)) {
+            wlRepo.addWishToDB(newWish, userId);
+            System.out.println("wish uploaded to database");
+        }else{
+            System.out.println("Wish not valid and not uploaded");
+        }
+
     }
 
     public ArrayList<Wishes> getSingleWishlist(String email) {
